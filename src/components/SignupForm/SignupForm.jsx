@@ -34,11 +34,10 @@ export default function SignupForm( {handleSignupOrLogin} ) {
 
   return (
     <>
-      <h3>Sign Up</h3>
+      <h1>Sign Up</h1>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.signupForm}>
         <fieldset>
           {message && <p>{message}</p>}
-
           <label htmlFor="name">Name</label>
           <input
             type="text"

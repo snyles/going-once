@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styles from "./Login.module.css";
 import authService from '../../services/authService'
@@ -10,6 +10,7 @@ export default function LoginPage({handleSignupOrLogin}) {
     pw: "",
   });
   const {email, pw} = inputs;
+  const [message, setMessage] = useState('')
 
   const history = useHistory();
   
@@ -21,15 +22,16 @@ export default function LoginPage({handleSignupOrLogin}) {
       history.push("/");
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
-      alert(err.message);
+      setMessage(err.message)
     }
   };
 
   return (
     <main>
-      <h3>Log In</h3>
+      <h1>Log In</h1>
       <form className={styles.loginForm}autoComplete="off" onSubmit={handleSubmit}>
         <fieldset>
+          {message && <p>{message}</p>}
           <label htmlFor="email">Email</label>
           <input
             type="text"
