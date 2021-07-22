@@ -21,7 +21,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       await authService.signup(inputs);
       // Let <App> know a user has signed up!

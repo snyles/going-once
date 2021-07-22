@@ -1,6 +1,8 @@
-import { useContext } from 'react';
-import { NavLink } from "react-router-dom";
-import { UserContext } from '../../lib/UserContext';
+import { useContext } from 'react'
+import { NavLink } from "react-router-dom"
+import { UserContext } from '../../lib/UserContext'
+
+import './navbar.css'
 
 export default function NavBar ({ handleLogout }) {
   const user = useContext(UserContext)
@@ -15,7 +17,7 @@ export default function NavBar ({ handleLogout }) {
         </>
       :
         <>
-          <li><NavLink to="/login">Log In</NavLink></li>
+          <li><NavLink to="/login" className='loginTest'>Log In</NavLink></li>
           <li><NavLink to="/signup">Sign Up</NavLink></li>
         </>
       }

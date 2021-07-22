@@ -47,10 +47,10 @@ export default function App (props) {
               <Users />
           </ProtectedRoute>
           <Route
-            path="/"
+            exact path="/"
             render={() => (
               <main>
-                <h1>Welcome. This is an authorization template.</h1>
+                <h1>Going Once</h1>
               </main>
             )}
           />
