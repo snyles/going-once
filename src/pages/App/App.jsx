@@ -7,6 +7,11 @@ import Users from '../Users/Users'
 import authService from "../../services/authService"
 import { UserContext } from '../../lib/UserContext'
 import ProtectedRoute from "../../components/ProtectedRoute";
+import { Link } from 'react-router-dom'
+import Map from '../Map/Map'
+
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -51,6 +56,16 @@ export default function App (props) {
             render={() => (
               <main>
                 <h1>Going Once</h1>
+                <Link to='/login' className='linkTag btn btn-dark'><p>ENTER</p></Link>
+              </main>
+            )}
+          />
+          <Route
+            exact path='/map'
+            render={() => (
+              <main>
+                <NavBar handleLogout={handleLogout} />
+                <Map />
               </main>
             )}
           />

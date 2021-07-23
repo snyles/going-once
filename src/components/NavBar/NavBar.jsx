@@ -8,20 +8,20 @@ export default function NavBar ({ handleLogout }) {
   const user = useContext(UserContext)
   return (
     <nav>
-      <ul>
-      {user ?
-        <>
-          <li>Welcome, {user.name}</li>
-          <li><NavLink to="" onClick={handleLogout}>Log Out</NavLink></li>
-          <li><NavLink to="/users">Users</NavLink></li>
-        </>
-      :
-        <>
-          <li><NavLink to="/login" className='loginTest'>Log In</NavLink></li>
-          <li><NavLink to="/signup">Sign Up</NavLink></li>
-        </>
-      }
-      </ul>
+      <main className='navbarContainer'>
+        {user ?
+          <>
+              <span>Welcome, {user.name}</span>
+              <NavLink to="" onClick={handleLogout} id='logOut'>Log Out</NavLink>
+              {/* <li><NavLink to="/users">Users</NavLink></li> */}
+          </>
+        :
+          <>
+            {/* <NavLink to="/login">Log In</NavLink>
+            <NavLink to="/signup">Sign Up</NavLink> */}
+          </>
+        }
+      </main>
     </nav>
   )
 }
