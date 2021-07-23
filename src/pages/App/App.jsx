@@ -9,6 +9,7 @@ import { UserContext } from '../../lib/UserContext'
 import { LocationContext } from "../../lib/LocationContext";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import SplashPage from "../SplashPage";
+import Map from "../Map";
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -58,6 +59,13 @@ export default function App (props) {
           <ProtectedRoute path='/users'>
               <Users />
           </ProtectedRoute>
+          
+          <Route
+            path="/map"
+            render={() => (
+              <Map />
+            )}
+          />
 
           <Route
             path="/"
