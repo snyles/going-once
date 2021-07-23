@@ -1,7 +1,9 @@
 const Item = require('../models/item');
 module.exports = {
   index,
-  findItemById
+  findItemById,
+  postItem,
+  deleteItem,
 };
 
 function index(req, res) {
