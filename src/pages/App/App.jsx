@@ -6,7 +6,9 @@ import Login from "../Login/Login";
 import Users from '../Users/Users'
 import authService from "../../services/authService"
 import { UserContext } from '../../lib/UserContext'
+import { LocationContext } from "../../lib/LocationContext";
 import ProtectedRoute from "../../components/ProtectedRoute";
+import SplashPage from "../SplashPage";
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -22,10 +24,20 @@ export default function App (props) {
     setUser(authService.getUser());
   }
 
+  const [location, setLocation] = useState({
+    name: "",
+    coords: {},
+  })
+
+  const setLoc = (newLoc) => {
+    setLocation(newLoc)
+  }
+
   return (
     <>
       <UserContext.Provider value={user}>
-        <NavBar handleLogout={handleLogout} />
+      <LocationContext.Provider value={{location, setLoc}}>
+        {/* <NavBar handleLogout={handleLogout} /> */}
         <Switch>
           <Route
             path="/signup"
@@ -46,15 +58,15 @@ export default function App (props) {
           <ProtectedRoute path='/users'>
               <Users />
           </ProtectedRoute>
+
           <Route
             path="/"
             render={() => (
-              <main>
-                <h1>Welcome. This is an authorization template.</h1>
-              </main>
+              <SplashPage />
             )}
           />
         </Switch>
+      </LocationContext.Provider>
       </UserContext.Provider>
     </>
   );
