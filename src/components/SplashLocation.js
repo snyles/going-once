@@ -8,7 +8,7 @@ const LocationBox= styled.div`
   text-align: center;
   background-color: rgba(255,255,255,0.8);
   border-radius: 2rem;
-  padding: 2rem 4rem;
+  padding: 3rem 4rem;
   h1 {
     font-size: 3rem;
     margin: 0.5rem 0 1rem 0;
@@ -17,6 +17,9 @@ const LocationBox= styled.div`
     display: flex;
     justify-content: center;
     input {
+      font-size: 2rem;
+    }
+    button {
       font-size: 2rem;
     }
   }
