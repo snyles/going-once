@@ -14,5 +14,19 @@ function index(req, res) {
 // }
 
 function findItemById(req, res) {
-    Item.findById(req.id).then(item => res.json(item))
+    Item.findById(req.params.id).then(item => res.json(item))
+}
+
+async function postItem(req, res) {
+  const item = new Item(req.body);
+  try {
+    await item.save();
+    res.json({ item });
+  } catch (err) {
+    res.status(400).send({'err': err.errmsg});
+  }
+}
+
+function deleteItem(req, res) {
+  
 }
