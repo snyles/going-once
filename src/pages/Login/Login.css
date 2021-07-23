@@ -1,4 +1,4 @@
-#loginAppName {
+#AppName {
   margin-top: 0vh;
   font-size: 25px;
   font-weight: 700;
@@ -20,7 +20,10 @@ input {
 }
 
 .formText {
+  border: 1px solid black;
   width: 80vw;
+  height: 5.5vh;
+  font-size: large;
 }
 
 .buttonsContainer {
@@ -35,12 +38,12 @@ input {
           justify-content: center;
 }
 
-.loginButton {
+.login-signupButton {
   border-radius: 5rem;
   width: 80vw;
 }
 
-.loginButton:hover {
+.login-signupButton:hover {
   text-decoration: none;
 }
 
@@ -93,7 +96,7 @@ input {
   margin-top: 15vh;
 }
 
-#noAccountSignUp {
+#signupLink {
   color: black;
 }
 /*# sourceMappingURL=Login.css.map */

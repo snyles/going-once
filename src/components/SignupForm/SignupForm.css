@@ -1,0 +1,18 @@
+#signupTitle {
+  margin-top: 7vh;
+  margin-bottom: 3vh;
+}
+
+#signupText {
+  font-size: 20px;
+}
+
+#yesAccount {
+  font-size: 20px;
+  margin-top: 10vh;
+}
+
+#loginLink {
+  color: black;
+}
+/*# sourceMappingURL=SignupForm.css.map */

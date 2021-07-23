@@ -64,7 +64,6 @@ export default function App (props) {
             exact path='/map'
             render={() => (
               <main>
-                <NavBar handleLogout={handleLogout} />
                 <Map />
               </main>
             )}

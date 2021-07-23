@@ -27,7 +27,7 @@ export default function LoginPage({handleSignupOrLogin}) {
     try {
       await authService.login(inputs);
       handleSignupOrLogin();
-      history.push("/");
+      history.push("/map");
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
       setMessage(err.message)
@@ -36,7 +36,7 @@ export default function LoginPage({handleSignupOrLogin}) {
 
   return (
     <main>
-      <h1 id='loginAppName'>GOING ONCE</h1>
+      <h1 id='AppName'>GOING ONCE</h1>
       <h1 id='loginTitle'>Welcome Back!<br></br>Log In</h1>
       <div className='imgs'>
         <img src={googleLogo} id='googleSignin' />
@@ -68,13 +68,14 @@ export default function LoginPage({handleSignupOrLogin}) {
             placeholder="password"
             onChange={handleChange}
           />
-        </fieldset>
             {/* <button type="button" onClick={()=>history.push('/')}>Cancel</button> */}
+          <p id='noAccount'>Don't have an account? <Link to='/signup' id='signupLink'>Sign up</Link></p>
+          <div className='buttonsContainer'>
+            <button type="submit" className='login-signupButton btn btn-dark'><p id='loginText'>Log In</p>
+            </button>
+          </div>
+        </fieldset>
       </form>
-      <p id='noAccount'>Don't have an account? <Link to='/signup' id='noAccountSignUp'>Sign up</Link></p>
-      <div className='buttonsContainer'>
-        <Link type="submit" className='loginButton btn btn-dark' onClick={()=>history.push('/map')}><p id='loginText'>Log In</p></Link>
-      </div>
     </main>
   );
 }
