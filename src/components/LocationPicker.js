@@ -38,7 +38,7 @@ export default function LocationPicker({startingCoords, setFinalCoords}) {
       console.log(coords)
       setFinalCoords(coords)
     })
-  }, [startingCoords])
+  }, [startingCoords, setFinalCoords])
 
   return (
     <PickerMap id="picker-map" />

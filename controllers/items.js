@@ -7,7 +7,11 @@ module.exports = {
 };
 
 function index(req, res) {
-  Item.find({}).then(items => res.json(items))
+  try {
+    Item.find({}).then(items => res.json(items))
+  } catch (err) {
+    res.status(400).json(err);
+  }
 }
 // function tagIndex(req, res) {
 //     Item.find({ tag: req.tag }).then(items => res.json(items))

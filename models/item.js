@@ -5,12 +5,12 @@ const itemSchema = new mongoose.Schema({
     required: true
   },
   address: {type: String},
+  description: {type: String},
   lat: {type: Number},
   lng: {type: Number},
   city: {type: String},
   picture: {type: String},
   condition: {type: String},
-  tag: {type: String},
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

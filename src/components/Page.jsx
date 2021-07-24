@@ -1,6 +1,6 @@
 import NavBar from "./NavBar"
 import styled from 'styled-components'
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import GetCurrentLocation from "./GetCurrentLocation";
 import { LocationContext } from "../lib/LocationContext";
 
