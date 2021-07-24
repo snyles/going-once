@@ -23,7 +23,7 @@ export default function PostForm
       }
       addressChange(coords)
     })
-  },[]);
+  },[addressChange]);
   
   return (
     <>

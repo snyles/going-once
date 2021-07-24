@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import LocationPicker from "../components/LocationPicker";
 import Page from "../components/Page"
 import PostForm from "../components/PostForm";
@@ -35,6 +35,7 @@ export default function Post() {
     }
     console.log(postData);
     const result = await itemService.postItem(postData);
+    console.log("post result", result)
   }
 
   const addressChange = (coords) => {
