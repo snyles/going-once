@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Page from "../components/Page";
 import { LocationContext } from "../lib/LocationContext";
@@ -52,6 +51,7 @@ export default function Map(props) {
         content: `
           <h1>${item.title}</h1>
           <p>${item.condition}</p>
+          <p>${item.description}</p>
         `,
       })
       const gMarker = new window.google.maps.Marker({

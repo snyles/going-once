@@ -4,7 +4,8 @@ import styled from 'styled-components'
 const PickerMap = styled.div`
   min-width: 200px;
   width: 100%;
-  min-height: 300px;
+  min-height: 400px;
+  margin: 0 auto;
 `;
 
 

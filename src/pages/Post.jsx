@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import LocationPicker from "../components/LocationPicker";
 import Page from "../components/Page"
 import PostForm from "../components/PostForm";
@@ -11,6 +12,7 @@ import * as itemService from "../services/itemService"
 export default function Post() {
   const user = useContext(UserContext)
   const locData = useContext(LocationContext)
+  const history = useHistory();
   const {inputs, handleChange, resetForm } = useForm({
     title: "",
     condition: "",
@@ -33,10 +35,13 @@ export default function Post() {
       lng: finalCoords.lng,
       owner: user._id
     }
-    console.log(postData);
-    const result = await itemService.postItem(postData);
-    console.log("post result", result)
+    await itemService.postItem(postData)
+    history.push('/map')
   }
+
+  useEffect(()=> {
+    setPickerCoords(locData.location.coords)
+  },[locData])
 
   const addressChange = (coords) => {
     setPickerCoords(coords)

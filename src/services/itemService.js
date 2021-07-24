@@ -21,10 +21,7 @@ export function postItem(item) {
       body: JSON.stringify(item)
     },
     { mode: "cors" })
-  .then(res => {
-    console.log(res)
-    res.json()
-  })
+  .then(res => res.json())
 }
 
 export async function deleteItem(item) {
