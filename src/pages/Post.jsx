@@ -16,6 +16,7 @@ export default function Post() {
     // city: "",
     // owner: "",
   });
+
   const [pickerCoords, setPickerCoords] = useState({
     lat: null,
     lng: null,
@@ -26,9 +27,9 @@ export default function Post() {
     console.log(inputs)
   }
 
-  const addressChange = () => {
-    const addressString = `${inputs.address} ${locData.location.name}`
-    
+  const addressChange = (coords) => {
+    console.log(coords)
+    setPickerCoords(coords)
   }
 
   return (

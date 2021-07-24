@@ -1,7 +1,29 @@
+import { useEffect, useRef } from "react";
 import { StyledForm } from "../components/Styles/Form"
 
 export default function PostForm
   ({inputs, handleSubmit, resetForm, handleChange, addressChange}) {
+  
+  const addressInput = useRef(null);
+  
+  useEffect(()=> {
+    const options = {
+      componentRestrictions: { country: "us" },
+      fields: ["address_components", "geometry", "formatted_address"],
+      types: ["address"],
+    };
+    const autocomplete = new window.google.maps.places.Autocomplete(
+      addressInput.current, options)
+    autocomplete.addListener('place_changed', () => {
+      const result = autocomplete.getPlace();
+      const coords = {
+        lat: result.geometry.location.lat(),
+        lng: result.geometry.location.lng(),
+      }
+      addressChange(coords)
+    })
+  },[]);
+  
   return (
     <>
       <StyledForm autoComplete="off" onSubmit={handleSubmit}>
@@ -27,9 +49,10 @@ export default function PostForm
             type="text"
             name="address"
             required
-            value={inputs.address}
+            value={inputs.address || ''}
             onChange={handleChange}
-            onBlur={addressChange}
+            onBlur={handleChange}
+            ref={addressInput}
           />
           <label htmlFor="condition">Condition</label>
           <input 
