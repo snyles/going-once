@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import Page from "../components/Page";
+import Page from "./Page";
 import { LocationContext } from "../lib/LocationContext";
 import * as itemService from "../services/itemService"
 import MarkerClusterer from '@googlemaps/markerclustererplus';
@@ -72,8 +72,6 @@ export default function Map(props) {
 
 
   return (
-    <Page>
-      <MapDiv id="map">Loading...</MapDiv>
-    </Page>
+    <MapDiv id="map">Loading...</MapDiv>
   );
 }

@@ -8,8 +8,9 @@ import { UserContext } from '../../lib/UserContext'
 import { LocationContext } from "../../lib/LocationContext";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import SplashPage from "../SplashPage";
-import Map from "../Map";
+import Map from "../../components/Map";
 import Post from "../Post"
+import ItemsPage from "../Items";
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -58,7 +59,12 @@ export default function App (props) {
           <ProtectedRoute path='/users'>
               <Users />
           </ProtectedRoute>
-          
+          <Route
+            path="/items"
+            render={() => (
+              <ItemsPage />
+            )}
+          />
           <Route
             path="/map"
             render={() => (

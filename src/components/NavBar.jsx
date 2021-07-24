@@ -20,7 +20,7 @@ export default function NavBar ({ handleLogout }) {
         </>
       }
         <li><NavLink to="/post">Post</NavLink></li>
-        <li><NavLink to="/map">Map</NavLink></li>
+        <li><NavLink to="/items">Items</NavLink></li>
       </ul>
     </nav>
   )
