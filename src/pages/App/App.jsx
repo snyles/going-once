@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Route, useHistory, Switch } from "react-router-dom";
-import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import Users from '../Users/Users'
@@ -10,6 +9,7 @@ import { LocationContext } from "../../lib/LocationContext";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import SplashPage from "../SplashPage";
 import Map from "../Map";
+import Post from "../Post"
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -38,7 +38,6 @@ export default function App (props) {
     <>
       <UserContext.Provider value={user}>
       <LocationContext.Provider value={{location, setLoc}}>
-        {/* <NavBar handleLogout={handleLogout} /> */}
         <Switch>
           <Route
             path="/signup"
@@ -64,6 +63,13 @@ export default function App (props) {
             path="/map"
             render={() => (
               <Map />
+            )}
+          />
+
+          <Route
+            path="/post"
+            render={() => (
+              <Post />
             )}
           />
 

@@ -8,7 +8,7 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 
 ReactDOM.render(
   <Router>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <Wrapper 
           apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} 
           version="weekly"
@@ -16,7 +16,7 @@ ReactDOM.render(
         >
         <Route render={() => <App />} />
       </Wrapper>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </Router>,
   document.getElementById("root")
 );
