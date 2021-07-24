@@ -35,7 +35,6 @@ export default function Post() {
   const addressChange = (coords) => {
     setPickerCoords(coords)
     setFinalCoords(coords)
-    console.log(pickerCoords)
   }
 
   return (
@@ -53,11 +52,11 @@ export default function Post() {
           />
         </ColOne>
         <ColTwo>
+          <p>Adjust the map marker to set the item's exact location</p>
           <LocationPicker 
             startingCoords={pickerCoords} 
             setFinalCoords={setFinalCoords}
             />
-          <p>Adjust the map marker to set the item's exact location</p>
         </ColTwo>
       </TwoCols>
     </Page>

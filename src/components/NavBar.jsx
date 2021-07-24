@@ -12,8 +12,6 @@ export default function NavBar ({ handleLogout }) {
           <li>Welcome, {user.name}</li>
           <li><NavLink to="" onClick={handleLogout}>Log Out</NavLink></li>
           <li><NavLink to="/users">Users</NavLink></li>
-          <li><NavLink to="/post">Post</NavLink></li>
-          <li><NavLink to="/map">Map</NavLink></li>
         </>
       :
         <>
@@ -21,6 +19,8 @@ export default function NavBar ({ handleLogout }) {
           <li><NavLink to="/signup">Sign Up</NavLink></li>
         </>
       }
+        <li><NavLink to="/post">Post</NavLink></li>
+        <li><NavLink to="/map">Map</NavLink></li>
       </ul>
     </nav>
   )
