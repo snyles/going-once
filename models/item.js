@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const itemSchema = new mongoose.Schema({
-  title: {type: String},
-  cords: {
-    lat: {type: Number},
-    long: {type: Number},
+  title: {
+    type: String,
+    required: true
   },
+  address: {type: String},
+  lat: {type: Number},
+  long: {type: Number},
   city: {type: String},
   picture: {type: String},
   condition: {type: String},
