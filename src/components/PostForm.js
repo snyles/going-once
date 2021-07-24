@@ -14,6 +14,7 @@ export default function PostForm
     };
     const autocomplete = new window.google.maps.places.Autocomplete(
       addressInput.current, options)
+    addressInput.current.focus()
     autocomplete.addListener('place_changed', () => {
       const result = autocomplete.getPlace();
       const coords = {
