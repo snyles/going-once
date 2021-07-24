@@ -6,7 +6,7 @@ const itemSchema = new mongoose.Schema({
   },
   address: {type: String},
   lat: {type: Number},
-  long: {type: Number},
+  lng: {type: Number},
   city: {type: String},
   picture: {type: String},
   condition: {type: String},

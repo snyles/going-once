@@ -61,7 +61,7 @@ export default function PostForm
             value={inputs.category}
             onChange={handleChange}
           >
-            <option selected>Furniture</option>
+            <option>Furniture</option>
             <option>Household</option>
             <option>Other</option>
           </select>
