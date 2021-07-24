@@ -28,7 +28,17 @@ export default function PostForm
     <>
       <StyledForm autoComplete="off" onSubmit={handleSubmit}>
         <fieldset>
-          <label htmlFor="title">Title</label>
+          <label htmlFor="address">Item Address</label>
+          <input 
+            type="text"
+            name="address"
+            required
+            value={inputs.address || ''}
+            onChange={handleChange}
+            onBlur={handleChange}
+            ref={addressInput}
+          />
+          <label htmlFor="title">Post Title</label>
           <input 
             type="text"
             name="title"
@@ -44,16 +54,16 @@ export default function PostForm
             onChange={handleChange}
 
           />
-          <label htmlFor="address">Address</label>
-          <input 
-            type="text"
-            name="address"
-            required
-            value={inputs.address || ''}
+          <label htmlFor="category">Item Category</label>
+          <select 
+            name="category"
+            value={inputs.category}
             onChange={handleChange}
-            onBlur={handleChange}
-            ref={addressInput}
-          />
+          >
+            <option selected>Furniture</option>
+            <option>Household</option>
+            <option>Other</option>
+          </select>
           <label htmlFor="condition">Condition</label>
           <input 
             type="text"

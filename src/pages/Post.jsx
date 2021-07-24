@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import GetCurrentLocation from "../components/GetCurrentLocation";
+import LocationPicker from "../components/LocationPicker";
 import Page from "../components/Page"
 import PostForm from "../components/PostForm";
 import {TwoCols , ColOne, ColTwo} from "../components/Styles/TwoCols";
@@ -13,28 +13,33 @@ export default function Post() {
     condition: "",
     description: "",
     address: "",
+    category: "",
     // city: "",
     // owner: "",
   });
 
-  const [pickerCoords, setPickerCoords] = useState({
-    lat: null,
-    lng: null,
-  })
+  const [pickerCoords, setPickerCoords] = useState(locData.location.coords)
+  const [finalCoords, setFinalCoords] = useState({})
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs)
+    const postData = {
+      ...inputs,
+      city: locData.location.name,
+      lat: finalCoords.lat,
+      lng: finalCoords.lng,
+    }
+    console.log(postData);
   }
 
   const addressChange = (coords) => {
-    console.log(coords)
     setPickerCoords(coords)
+    setFinalCoords(coords)
+    console.log(pickerCoords)
   }
 
   return (
     <Page>
-      {!locData.location.name && <GetCurrentLocation />}
       <h1>Post a New Item in {locData.location.name}</h1>
       <TwoCols>
         <ColOne>
@@ -48,7 +53,11 @@ export default function Post() {
           />
         </ColOne>
         <ColTwo>
-
+          <LocationPicker 
+            startingCoords={pickerCoords} 
+            setFinalCoords={setFinalCoords}
+            />
+          <p>Adjust the map marker to set the item's exact location</p>
         </ColTwo>
       </TwoCols>
     </Page>
