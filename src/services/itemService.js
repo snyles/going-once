@@ -11,25 +11,29 @@ export async function getAllItems() {
     return await res.json();
   }
 
-  export async function postItem(item) {
-    const res = await fetch(
-      BASE_URL,
-      {
-        method: "POST",
-        headers: { Authorization: "Bearer " + tokenService.getToken() },
-        body: JSON.stringify(item)
-      },
-      { mode: "cors" });
-    return await res.json();
-  }
+export function postItem(item) {
+  console.log("service", item)
+  return fetch(
+    BASE_URL,
+    {
+      method: "POST",
+      headers: { Authorization: "Bearer " + tokenService.getToken(), 'content-type': 'application/json'},
+      body: JSON.stringify(item)
+    },
+    { mode: "cors" })
+  .then(res => {
+    console.log(res)
+    res.json()
+  })
+}
 
-  export async function deleteItem(item) {
-    const res = await fetch(
-      BASE_URL,
-      {
-        method: "DELETE",
-        headers: { Authorization: "Bearer " + tokenService.getToken() },
-      },
-      { mode: "cors" });
-    return await res.json();
-  }
+export async function deleteItem(item) {
+  const res = await fetch(
+    BASE_URL,
+    {
+      method: "DELETE",
+      headers: { Authorization: "Bearer " + tokenService.getToken() },
+    },
+    { mode: "cors" });
+  return await res.json();
+}

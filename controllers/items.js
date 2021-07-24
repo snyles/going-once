@@ -20,10 +20,10 @@ function findItemById(req, res) {
 async function postItem(req, res) {
   const item = new Item(req.body);
   try {
-    await item.save();
-    res.json({ item });
+    await item.save()
+    .then((result) => res.json(result));
   } catch (err) {
-    res.status(400).send({'err': err.errmsg});
+    res.status(400).json(err);
   }
 }
 

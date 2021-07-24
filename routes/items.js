@@ -3,12 +3,13 @@ const router = express.Router();
 const itemCtrl = require('../controllers/items');
 
 /*---------- Public Routes ----------*/
-router.get("/feed", itemCtrl.index)
-router.get("/feed/:id", itemCtrl.findItemById)
+router.get("/", itemCtrl.index)
+router.get("/:id", itemCtrl.findItemById)
 
+// router.post("/", itemCtrl.postItem)
 /*---------- Protected Routes ----------*/
 router.use(require("../config/auth"));
-router.post("/post-item", checkAuth, itemCtrl.postItem)
+router.post("/", checkAuth, itemCtrl.postItem)
 
 function checkAuth(req, res, next) {
   if (req.user) return next();

@@ -5,8 +5,11 @@ import PostForm from "../components/PostForm";
 import {TwoCols , ColOne, ColTwo} from "../components/Styles/TwoCols";
 import { LocationContext } from "../lib/LocationContext";
 import useForm from "../lib/useForm";
+import { UserContext } from "../lib/UserContext";
+import * as itemService from "../services/itemService"
 
 export default function Post() {
+  const user = useContext(UserContext)
   const locData = useContext(LocationContext)
   const {inputs, handleChange, resetForm } = useForm({
     title: "",
@@ -21,15 +24,17 @@ export default function Post() {
   const [pickerCoords, setPickerCoords] = useState(locData.location.coords)
   const [finalCoords, setFinalCoords] = useState({})
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const postData = {
       ...inputs,
       city: locData.location.name,
       lat: finalCoords.lat,
       lng: finalCoords.lng,
+      owner: user._id
     }
     console.log(postData);
+    const result = await itemService.postItem(postData);
   }
 
   const addressChange = (coords) => {
