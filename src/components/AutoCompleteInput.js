@@ -28,8 +28,11 @@ export default function AutoCompleteInput({type, location}) {
     autocomplete.addListener('place_changed', () => {
       const res = autocomplete.getPlace();
       console.log(res)
-      const city = res.address_components.find(comp => comp.types.includes('locality')).long_name
-      const state = res.address_components.find(comp => comp.types.includes('administrative_area_level_1')).short_name
+      const city = res.address_components.find(comp => 
+        comp.types.includes('locality') || 
+        comp.types.includes('sublocality')).long_name
+      const state = res.address_components.find(comp => 
+        comp.types.includes('administrative_area_level_1')).short_name
       const pos = res.geometry.location
       const location = {
         name: `${city}, ${state}`,

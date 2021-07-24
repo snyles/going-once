@@ -1,55 +1,65 @@
+import { useContext, useEffect, useState } from "react";
+import LocationPicker from "../components/LocationPicker";
 import Page from "../components/Page"
-import { StyledForm } from "../components/Styles/Form"
-import { TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
-import useForm from "../lib/useForm"
+import PostForm from "../components/PostForm";
+import {TwoCols , ColOne, ColTwo} from "../components/Styles/TwoCols";
+import { LocationContext } from "../lib/LocationContext";
+import useForm from "../lib/useForm";
 
 export default function Post() {
+  const locData = useContext(LocationContext)
   const {inputs, handleChange, resetForm } = useForm({
     title: "",
     condition: "",
-    city: "",
-    owner: "",
+    description: "",
+    address: "",
+    category: "",
+    // city: "",
+    // owner: "",
   });
+
+  const [pickerCoords, setPickerCoords] = useState(locData.location.coords)
+  const [finalCoords, setFinalCoords] = useState({})
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const postData = {
+      ...inputs,
+      city: locData.location.name,
+      lat: finalCoords.lat,
+      lng: finalCoords.lng,
+    }
+    console.log(postData);
+  }
+
+  const addressChange = (coords) => {
+    setPickerCoords(coords)
+    setFinalCoords(coords)
+    console.log(pickerCoords)
   }
 
   return (
     <Page>
-      <h1>Post a New Item</h1>
-      <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-        <TextField 
-          required
-          value={inputs.title}
-          onChange={handleChange}
-          label="Post Title"
-          variant="filled"
-        />
-        <TextField 
-          required
-          value={inputs.address}
-          onChange={handleChange}
-          label="Address"
-          variant="filled"
-        />
-        <TextField 
-            required
-            value={inputs.condition}
-            onChange={handleChange}
-            label="Condition"
-            variant="filled"
-        />
-        <TextField 
-          required
-          value={inputs.condition}
-          onChange={handleChange}
-          label="Condition"
-          variant="filled"
-        />
-
-
-      </StyledForm>
+      <h1>Post a New Item in {locData.location.name}</h1>
+      <TwoCols>
+        <ColOne>
+          <PostForm 
+            inputs={inputs}
+            handleSubmit={handleSubmit}
+            resetForm={resetForm}
+            handleChange={handleChange}
+            addressChange={addressChange}
+            locData={locData}
+          />
+        </ColOne>
+        <ColTwo>
+          <LocationPicker 
+            startingCoords={pickerCoords} 
+            setFinalCoords={setFinalCoords}
+            />
+          <p>Adjust the map marker to set the item's exact location</p>
+        </ColTwo>
+      </TwoCols>
     </Page>
   )
 }

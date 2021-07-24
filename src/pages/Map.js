@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import Page from "../components/Page";
 import { LocationContext } from "../lib/LocationContext";
 
 const MapDiv = styled.div`
@@ -35,11 +36,11 @@ export default function Map(props) {
 
 
   return (
-    <>
+    <Page>
       {/* <p>{locData?.location?.name}</p>
       <p>{locData?.location?.coords.lat()}</p>
       <p>{locData?.location?.coords.lng()}</p> */}
       <MapDiv id="map">Loading...</MapDiv>
-    </>
+    </Page>
   );
 }
