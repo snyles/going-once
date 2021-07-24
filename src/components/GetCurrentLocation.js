@@ -47,8 +47,10 @@ export default function GetCurrentLocation({setLocation}) {
                     coords: pos
                   }
                   console.log("location found", location)
+                  // update location data in context
                   locationData.setLoc(location)
-                  setLocation(location)
+                  // run setLocation prop if available
+                  if (setLocation) setLocation(location)
                 }
               } else {
                 console.log("No locations found")

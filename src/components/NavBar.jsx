@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { NavLink } from "react-router-dom";
-import { UserContext } from '../../lib/UserContext';
+import { UserContext } from '../lib/UserContext';
 
 export default function NavBar ({ handleLogout }) {
   const user = useContext(UserContext)
@@ -19,6 +19,8 @@ export default function NavBar ({ handleLogout }) {
           <li><NavLink to="/signup">Sign Up</NavLink></li>
         </>
       }
+        <li><NavLink to="/post">Post</NavLink></li>
+        <li><NavLink to="/items">Items</NavLink></li>
       </ul>
     </nav>
   )
