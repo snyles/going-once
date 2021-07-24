@@ -9,6 +9,7 @@ import { UserContext } from '../../lib/UserContext'
 import ProtectedRoute from "../../components/ProtectedRoute";
 import { Link } from 'react-router-dom'
 import Map from '../Map/Map'
+import PostDetails from '../../components/postDetails/postDetails.jsx'
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -65,6 +66,7 @@ export default function App (props) {
             render={() => (
               <main>
                 <Map />
+                <PostDetails />
               </main>
             )}
           />
