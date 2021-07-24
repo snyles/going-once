@@ -14,7 +14,7 @@ function index(req, res) {
 // }
 
 function findItemById(req, res) {
-    Item.findById(req.params.id).then(item => res.json(item))
+  Item.findById(req.params.id).then(item => res.json(item))
 }
 
 async function postItem(req, res) {
