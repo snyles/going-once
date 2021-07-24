@@ -1,5 +1,7 @@
 import NavBar from "./NavBar"
 import styled from 'styled-components'
+import { useState } from "react";
+import GetCurrentLocation from "./GetCurrentLocation";
 
 const PageStyles = styled.main`
   margin: 2rem auto 0 auto;
@@ -11,7 +13,7 @@ const PageStyles = styled.main`
   }
 `;
 
-export default function Page({children}) {
+export default function Page({children}) {  
   return (
     <>
       <NavBar />

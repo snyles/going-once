@@ -1,64 +1,50 @@
+import { useContext, useEffect, useState } from "react";
+import GetCurrentLocation from "../components/GetCurrentLocation";
 import Page from "../components/Page"
-import { StyledForm } from "../components/Styles/Form"
-// import { TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
-import useForm from "../lib/useForm"
+import PostForm from "../components/PostForm";
 import {TwoCols , ColOne, ColTwo} from "../components/Styles/TwoCols";
+import { LocationContext } from "../lib/LocationContext";
+import useForm from "../lib/useForm";
 
 export default function Post() {
+  const locData = useContext(LocationContext)
   const {inputs, handleChange, resetForm } = useForm({
     title: "",
     condition: "",
     description: "",
-
+    address: "",
     // city: "",
     // owner: "",
   });
+  const [pickerCoords, setPickerCoords] = useState({
+    lat: null,
+    lng: null,
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(inputs)
+  }
+
+  const addressChange = () => {
+    const addressString = `${inputs.address} ${locData.location.name}`
+    
   }
 
   return (
     <Page>
-      <h1>Post a New Item</h1>
+      {!locData.location.name && <GetCurrentLocation />}
+      <h1>Post a New Item in {locData.location.name}</h1>
       <TwoCols>
         <ColOne>
-          <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-            <fieldset>
-              <label htmlFor="title">Title</label>
-              <input 
-                type="text"
-                name="title"
-                required
-                value={inputs.title}
-                onChange={handleChange}
-              
-              />
-              <label htmlFor="description">Description</label>
-              <textarea 
-                name="description"
-                value={inputs.description}
-                onChange={handleChange}
-
-              />
-              <label htmlFor="address">Address</label>
-              <input 
-                type="text"
-                name="address"
-                required
-                value={inputs.address}
-                onChange={handleChange}
-              />
-              <label htmlFor="condition">Condition</label>
-              <input 
-                type="text"
-                name="condition"
-                value={inputs.condition}
-                onChange={handleChange}
-              />
-            </fieldset>
-            <button type="submit" >Post Item</button>
-          </StyledForm>
+          <PostForm 
+            inputs={inputs}
+            handleSubmit={handleSubmit}
+            resetForm={resetForm}
+            handleChange={handleChange}
+            addressChange={addressChange}
+            locData={locData}
+          />
         </ColOne>
         <ColTwo>
 

@@ -30,5 +30,7 @@ export const StyledForm = styled.form`
     width: 80%;
     max-width: 260px;
     min-height: 100px;
+    font-size: 1.5rem;
   }
+
 `;
