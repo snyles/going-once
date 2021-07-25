@@ -1,0 +1,62 @@
+.modal { //controls the modals outside box
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main { // controls the modals inside box
+  display: flex;
+  flex-direction: column;
+  position:fixed;
+  background: white;
+  width: 65%;
+  border-radius: 1rem;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  align-items: end;
+  justify-content: end;
+}
+
+#modalPicBoxContainer {
+  position: fixed;
+  top: auto;
+  left: 0%;
+  // border: 3px solid cyan;
+  width: 40%;
+  height: 100%;
+}
+
+.modalPicBox {
+  // border: 3px solid red;
+  border-radius: 1rem;
+  width: 100%;
+}
+
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+// work on later, get picture on side of modal line in between
+
+// .modal-header {
+//   transform: rotate(90deg) translate(50%, 0%);
+// }
+
+p {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+#closeModal {
+  height: 100vh;
+}
