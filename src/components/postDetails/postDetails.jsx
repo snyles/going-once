@@ -27,9 +27,6 @@ export default class PostDetails extends React.Component {
     return (
       <div>
         <Modal show={this.state.show} handleClose={this.hideModal}>
-          <p>Name: Couch</p>
-          <p>Category: Furniture</p>
-          <p>Condition: Excellent</p>
         </Modal>
         <img src='https://www.thespruce.com/thmb/5ZpyukLcBAS448-r2P43k9wDmEs=/3360x2240/filters:fill(auto,1)/signs-to-replace-your-couch-4165258-hero-5266fa7b788c41f6a02f24224a5de29b.jpg' id="couch" onClick={this.showModal}></img>
       </div>

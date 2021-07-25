@@ -18,6 +18,11 @@ const Modal = ({ handleClose, show, children }) => {
             <img src='https://www.thespruce.com/thmb/5ZpyukLcBAS448-r2P43k9wDmEs=/3360x2240/filters:fill(auto,1)/signs-to-replace-your-couch-4165258-hero-5266fa7b788c41f6a02f24224a5de29b.jpg' className="modalPicBox" />
           </div>
         </div>
+        <div id="postTextContainer">
+          <p>Name: Couch</p>
+          <p>Category: Furniture</p>
+          <p>Condition: Excellent</p>
+        </div>
         {children}
       </section>
     </div>

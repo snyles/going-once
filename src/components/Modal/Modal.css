@@ -19,25 +19,25 @@
   background: white;
   width: 65%;
   border-radius: 1rem;
-  height: auto;
+  height: 50%;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   -webkit-box-align: end;
       -ms-flex-align: end;
-          align-items: end;
+          align-items: flex-end;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
+          justify-content: flex-end;
+  overflow: auto;
 }
 
 #modalPicBoxContainer {
   position: fixed;
-  top: auto;
+  top: 0.5rem;
   left: 0%;
-  width: 40%;
-  height: 100%;
+  width: 100%;
 }
 
 .modalPicBox {
@@ -54,12 +54,14 @@
 }
 
 p {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  justify-self: flex-end;
+  font-size: 35px;
 }
 
 #closeModal {
   height: 100vh;
+}
+
+#postTextContainer {
+  height: 50%;
 }
 /*# sourceMappingURL=Modal.css.map */
