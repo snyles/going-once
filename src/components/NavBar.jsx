@@ -49,6 +49,9 @@ const NavStyles = styled.nav`
   .icon {
     font-size: 4rem;
   }
+  .logo {
+    font-size: 2.5rem;
+  }
 `;
 
 
@@ -57,7 +60,7 @@ export default function NavBar ({ handleLogout }) {
   return (
     <NavStyles>
       <ul>
-        <li>Logo</li>
+        <li className="logo">Going Once!</li>
       {/* </ul>
       <ul> */}
         <li className="icon"><NavLink to="/items">
