@@ -15,9 +15,10 @@ export default function ItemFeed({items}) {
   return (
     <>
       <h1>Item Feed</h1>
+      {console.log("items", items)}
       <ItemFeedStyle>
-        {items.map((item) => (
-          <ItemCard item={item} />
+        {items.length && items.map((item) => (
+          <ItemCard key={item._id} item={item} />
         ))}
       </ItemFeedStyle>
     </>
