@@ -18,8 +18,12 @@ export default function ItemsPage () {
 
   return (
     <Page>
-      <Map items={items} />
-      <ItemFeed items={items} />
+      {items.length && 
+      <>
+        <Map items={items} />
+        <ItemFeed items={items} />
+      </>
+      }
     </Page>
   )
 }
