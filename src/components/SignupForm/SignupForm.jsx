@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import authService from "../../services/authService";
 import useForm from "../../lib/useForm";
 import styles from './SignupForm.module.css'
+import { Button } from "@material-ui/core";
 
 export default function SignupForm( {handleSignupOrLogin} ) {
   const {inputs, handleChange, resetForm } = useForm({
@@ -35,7 +36,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
   return (
     <>
       <h1>Sign Up</h1>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.signupForm}>
+      <form autoComplete="off" onSubmit={(e)=>e.preventDefault()} className={styles.signupForm}>
         <fieldset>
           {message && <p>{message}</p>}
           <label htmlFor="name">Name</label>
@@ -74,10 +75,20 @@ export default function SignupForm( {handleSignupOrLogin} ) {
             name="passwordConf"
             onChange={handleChange}
           />
-          <div>
-            <button type="submit" disabled={isFormInvalid()}>Sign Up</button>
-            <button type="button" onClick={resetForm}>Reset</button>
-            <button type="button" onClick={()=>history.push('/')}>Cancel</button>
+          <div className={styles.buttons}>
+            <Button 
+              variant="contained"
+              onClick={handleSubmit}
+              disabled={isFormInvalid()}
+            >
+              Sign Up
+            </Button>
+            <Button 
+              variant="contained"
+              onClick={resetForm}
+            >
+              Reset
+            </Button>
           </div>
         </fieldset>
       </form>
