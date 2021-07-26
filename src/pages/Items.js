@@ -13,7 +13,6 @@ export default function ItemsPage () {
     async function fetchItems() {
       if (locData.location.name) {
         const itemsData = await itemService.getItemsByCity(locData?.location?.name)
-        console.log(itemsData)
         setItems(itemsData)
       }
     }

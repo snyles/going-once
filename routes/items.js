@@ -11,6 +11,7 @@ router.get("/:id", itemCtrl.findItemById)
 /*---------- Protected Routes ----------*/
 router.use(require("../config/auth"));
 router.post("/", checkAuth, itemCtrl.postItem)
+router.delete('/:id', checkAuth, itemCtrl.deleteItem)
 
 function checkAuth(req, res, next) {
   if (req.user) return next();

@@ -13,6 +13,9 @@ const PageStyles = styled.main`
     max-width: 100%;
     width: 100%;
   }
+  button {
+    font-size: 1.5rem
+  }
 `;
 
 export default function Page({children}) { 

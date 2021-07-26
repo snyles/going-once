@@ -26,7 +26,6 @@ export function getItemsByCity(city) {
 
 export function getItemsById(id) {
   const url = `${BASE_URL}${id}`;
-  console.log("url", url)
   return fetch(
     url,
     {
@@ -37,7 +36,6 @@ export function getItemsById(id) {
 }
 
 export function postItem(item) {
-  console.log("service", item)
   return fetch(
     BASE_URL,
     {
@@ -49,13 +47,13 @@ export function postItem(item) {
   .then(res => res.json())
 }
 
-export async function deleteItem(item) {
-  const res = await fetch(
-    BASE_URL,
+export function deleteItem(id) {
+  return fetch(
+    `${BASE_URL}${id}`,
     {
       method: "DELETE",
       headers: { Authorization: "Bearer " + tokenService.getToken() },
     },
-    { mode: "cors" });
-  return await res.json();
+    { mode: "cors" })
+  .then(res => res.json())
 }

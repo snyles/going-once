@@ -43,5 +43,7 @@ async function postItem(req, res) {
 }
 
 function deleteItem(req, res) {
-  
+  Item.findByIdAndDelete(req.params.id)
+    .then(item => res.json(item))
+    .catch(err => res.status(400).json(err))
 }
