@@ -2,13 +2,11 @@ import { useState } from "react";
 import { Route, useHistory, Switch } from "react-router-dom";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
-import Users from '../Users/Users'
 import authService from "../../services/authService"
 import { UserContext } from '../../lib/UserContext'
 import { LocationContext } from "../../lib/LocationContext";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import SplashPage from "../SplashPage";
-import Map from "../../components/Map";
 import Post from "../Post"
 import ItemsPage from "../Items";
 import NavBar from "../../components/NavBar";
