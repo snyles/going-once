@@ -1,5 +1,6 @@
 import ItemCard from "./ItemCard";
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 const ItemFeedStyle = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export default function ItemFeed({items}) {
         items.map((item) => (
           <ItemCard key={item._id} item={item} />
         )) :
-        <p>No items found!</p>
+        <p>No items found! <Link to="/">Try another city?</Link></p>
         }
       </ItemFeedStyle>
     </>
