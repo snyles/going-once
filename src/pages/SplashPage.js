@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import streetchair from '../assets/streetchair.jpg'
 import GetCurrentLocation from "../components/GetCurrentLocation";
 import SplashLocation from "../components/SplashLocation";
+import { LocationContext } from "../lib/LocationContext";
 
 const SplashDiv = styled.div`
   width: 100%;
@@ -26,11 +27,18 @@ const TitleStyle = styled.h1`
 
 export default function SplashPage(props) {
   const [location, setLocation] = useState({})
+  const locData = useContext(LocationContext);
+
+  useEffect(() => {
+    if(locData.location) setLocation(locData.location)
+  }, [locData])
 
   return (
     <SplashDiv>
       <TitleStyle>Going Once!</TitleStyle>
-      <GetCurrentLocation setLocation={setLocation} />
+      {!locData.location.name && 
+        <GetCurrentLocation setLocation={setLocation} />
+      }
       <SplashLocation location={location} />
     </SplashDiv>
   )

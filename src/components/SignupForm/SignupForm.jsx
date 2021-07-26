@@ -26,7 +26,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
       await authService.signup(inputs);
       // Let <App> know a user has signed up!
       handleSignupOrLogin();
-      history.push("/");
+      history.push("/items");
     } catch (err) {
       setMessage(err.message);
     }

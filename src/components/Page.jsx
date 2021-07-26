@@ -21,7 +21,6 @@ export default function Page({children}) {
   return (
     <>
       {!locData.location.name && <GetCurrentLocation />}
-      <NavBar />
       <PageStyles>
         {children}
       </PageStyles>

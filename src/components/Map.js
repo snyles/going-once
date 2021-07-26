@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import Page from "./Page";
 import { LocationContext } from "../lib/LocationContext";
-import * as itemService from "../services/itemService"
 import MarkerClusterer from '@googlemaps/markerclustererplus';
 
 const MapDiv = styled.div`
@@ -16,18 +14,11 @@ const MapDiv = styled.div`
   }
 `;
 
-export default function Map(props) {
+export default function Map({items = []}) {
   const locData = useContext(LocationContext)
-  const [items, setItems] = useState([]);
   const [map, setMap] = useState(null);
 
   useEffect(() => {
-    async function fetchItems() {
-      const itemsData = await itemService.getAllItems()
-      console.log(itemsData)
-      setItems(itemsData)
-    }
-    fetchItems();
     const map = new window.google.maps.Map(document.getElementById("map"), {
       center: locData.location.coords,
       zoom: 12,
