@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -20,12 +21,13 @@ const useStyles = makeStyles({
 });
 
 export default function ItemCard({item}) {
+  const history = useHistory()
   const classes = useStyles();
   const { title, description, condition } = item
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea onClick={()=> history.push(`/item/${item._id}`)}>
         {/* <CardMedia
           className={classes.media}
           image={picture}

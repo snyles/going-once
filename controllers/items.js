@@ -17,18 +17,19 @@ function index(req, res) {
 
 function findItemsByCity(req,res) {
   const formatCity = req.params.city.replace('-',', ')
-  try {
-    Item.find({city: formatCity}).then(items => res.json(items))
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  Item.find({city: formatCity})
+    .then(items => res.json(items))
+    .catch(err => res.status(400).json(err));
 }
 // function tagIndex(req, res) {
 //     Item.find({ tag: req.tag }).then(items => res.json(items))
 // }
 
 function findItemById(req, res) {
-  Item.findById(req.params.id).then(item => res.json(item))
+  console.log(req.params.id)
+  Item.findById(req.params.id)
+    .then(item => res.json(item))
+    .catch(err => res.status(400).json(err))
 }
 
 async function postItem(req, res) {

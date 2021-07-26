@@ -22,7 +22,7 @@ export default function GetCurrentLocation({setLocation}) {
             const geocoder = new window.google.maps.Geocoder()
             geocoder.geocode({ location: pos})
             .then((response) => {
-              console.log("response", response)
+              // console.log("response", response)
 
               // grab first address in response array, probably most accurate
               if (response.results[0]) {

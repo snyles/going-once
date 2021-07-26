@@ -4,7 +4,7 @@ export const TwoCols = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 2rem;
+  /* padding: 2rem; */
   /* background: green; */
   
   @media (max-width: 992px) {

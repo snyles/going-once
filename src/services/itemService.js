@@ -24,6 +24,18 @@ export function getItemsByCity(city) {
   .then(res => res.json())
 }
 
+export function getItemsById(id) {
+  const url = `${BASE_URL}${id}`;
+  console.log("url", url)
+  return fetch(
+    url,
+    {
+      headers: new Headers({'Content-Type': 'application/json'})
+    },
+    { mode: "cors" })
+  .then(res => res.json())
+}
+
 export function postItem(item) {
   console.log("service", item)
   return fetch(
