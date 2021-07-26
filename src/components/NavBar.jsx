@@ -71,7 +71,7 @@ export default function NavBar ({ handleLogout }) {
         <li className="icon"><NavLink to="/post">
           <AddCircleOutlineIcon fontSize="inherit" />
         </NavLink></li>
-        <li className="icon"><NavLink to="/items">
+        <li className="icon"><NavLink to="/favorites">
           <FavoriteBorderOutlinedIcon fontSize="inherit"/></NavLink></li>
       {/* </ul> */}
       {/* <ul> */}

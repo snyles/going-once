@@ -12,6 +12,7 @@ import Map from "../../components/Map";
 import Post from "../Post"
 import ItemsPage from "../Items";
 import NavBar from "../../components/NavBar";
+import Favorites from "../Favorites";
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -69,7 +70,9 @@ export default function App (props) {
           <ProtectedRoute path='/post'>
             <Post />
           </ProtectedRoute>
-
+          <ProtectedRoute path='/favorites'>
+            <Favorites />
+          </ProtectedRoute>
           <Route
             path="/"
             render={() => (
