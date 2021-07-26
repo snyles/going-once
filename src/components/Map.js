@@ -24,7 +24,7 @@ export default function Map(props) {
   useEffect(() => {
     async function fetchItems() {
       const itemsData = await itemService.getAllItems()
-      console.log(itemsData)
+      // console.log(itemsData)
       setItems(itemsData)
     }
     fetchItems();

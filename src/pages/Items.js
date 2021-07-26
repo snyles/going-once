@@ -3,7 +3,6 @@ import Page from "../components/Page";
 
 export default function ItemsPage () {
 
-
   return (
     <Page>
       <Map />

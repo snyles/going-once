@@ -11,6 +11,7 @@ import SplashPage from "../SplashPage";
 import Map from "../../components/Map";
 import Post from "../Post"
 import ItemsPage from "../Items";
+import NavBar from "../../components/NavBar";
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -39,6 +40,9 @@ export default function App (props) {
     <>
       <UserContext.Provider value={user}>
       <LocationContext.Provider value={{location, setLoc}}>
+        {history.location.pathname !== '/' && 
+          <NavBar handleLogout={handleLogout} />
+        }
         <Switch>
           <Route
             path="/signup"
