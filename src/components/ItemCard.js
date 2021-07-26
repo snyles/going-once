@@ -10,15 +10,18 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    minWidth: 300,
+    marginRight: '2rem',
+    marginBottom: '2rem',
   },
   media: {
     height: 140,
   },
 });
 
-export default function ItemCard(props) {
+export default function ItemCard({item}) {
   const classes = useStyles();
-  const { title, picture, description, condition } = props
+  const { title, picture, description, condition } = item
 
   return (
     <Card className={classes.root}>
