@@ -4,6 +4,7 @@ import styles from "./Login.module.css";
 import authService from '../../services/authService'
 import useForm from "../../lib/useForm";
 import Page from "../../components/Page";
+import { Button } from "@material-ui/core";
 
 export default function LoginPage({handleSignupOrLogin}) {
   const {inputs, handleChange} = useForm({
@@ -30,7 +31,7 @@ export default function LoginPage({handleSignupOrLogin}) {
   return (
     <Page>
       <h1>Log In</h1>
-      <form className={styles.loginForm}autoComplete="off" onSubmit={handleSubmit}>
+      <form className={styles.loginForm} autoComplete="off" onSubmit={(e)=>e.preventDefault()}>
         <fieldset>
           {message && <p>{message}</p>}
           <label htmlFor="email">Email</label>
@@ -51,9 +52,13 @@ export default function LoginPage({handleSignupOrLogin}) {
             name="pw"
             onChange={handleChange}
           />
-          <div>
-            <button type="submit">Log In</button>
-            <button type="button" onClick={()=>history.push('/')}>Cancel</button>
+          <div className={styles.buttons}>
+            <Button 
+              variant="contained"
+              onClick={handleSubmit}
+            >
+              Log In
+            </Button>
           </div>
         </fieldset>
       </form>
