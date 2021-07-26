@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import { UserContext } from '../lib/UserContext';
 import styled from 'styled-components'
 
-import HomeIcon from '@material-ui/icons/Home';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 
 const NavStyles = styled.nav`
   display: flex;
@@ -44,7 +44,7 @@ const NavStyles = styled.nav`
     margin-right: auto;
   }
   a {
-    color: green;
+    color: var(--black)
   }
   .icon {
     font-size: 4rem;
@@ -61,13 +61,15 @@ export default function NavBar ({ handleLogout }) {
       {/* </ul>
       <ul> */}
         <li className="icon"><NavLink to="/items">
-          <HomeIcon fontSize="inherit" />
+          <HomeOutlinedIcon 
+            fontSize="inherit" 
+          />
         </NavLink></li>
         <li className="icon"><NavLink to="/post">
           <AddCircleOutlineIcon fontSize="inherit" />
         </NavLink></li>
         <li className="icon"><NavLink to="/items">
-          <FavoriteIcon fontSize="inherit"/></NavLink></li>
+          <FavoriteBorderOutlinedIcon fontSize="inherit"/></NavLink></li>
       {/* </ul> */}
       {/* <ul> */}
       {user ?
