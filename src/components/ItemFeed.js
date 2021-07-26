@@ -7,15 +7,13 @@ const ItemFeedStyle = styled.div`
   justify-content: space-evenly;
   width: 100%;
   max-width: 768px;
-  margin: 0 auto;
+  margin: 3rem auto 0 auto;
 `;
 
 export default function ItemFeed({items}) {
 
   return (
     <>
-      <h1>Item Feed</h1>
-      {console.log("items", items)}
       <ItemFeedStyle>
         {items.length && items.map((item) => (
           <ItemCard key={item._id} item={item} />
