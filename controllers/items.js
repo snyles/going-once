@@ -4,11 +4,21 @@ module.exports = {
   findItemById,
   postItem,
   deleteItem,
+  findItemsByCity,
 };
 
 function index(req, res) {
   try {
     Item.find({}).then(items => res.json(items))
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
+function findItemsByCity(req,res) {
+  const formatCity = req.params.city.replace('-',', ')
+  try {
+    Item.find({city: formatCity}).then(items => res.json(items))
   } catch (err) {
     res.status(400).json(err);
   }

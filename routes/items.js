@@ -4,6 +4,7 @@ const itemCtrl = require('../controllers/items');
 
 /*---------- Public Routes ----------*/
 router.get("/", itemCtrl.index)
+router.get("/city/:city", itemCtrl.findItemsByCity)
 router.get("/:id", itemCtrl.findItemById)
 
 // router.post("/", itemCtrl.postItem)
