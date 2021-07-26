@@ -11,6 +11,7 @@ import Post from "../Post"
 import ItemsPage from "../Items";
 import NavBar from "../../components/NavBar";
 import Favorites from "../Favorites";
+import ItemPage from "../Item";
 
 export default function App (props) {
   const [user, setUser] = useState(authService.getUser())
@@ -19,7 +20,7 @@ export default function App (props) {
   const handleLogout = () => {
     authService.logout();
     setUser(null)
-    history.push("/items");
+    history.push("/post");
   }
 
   const handleSignupOrLogin = () => {
@@ -64,6 +65,18 @@ export default function App (props) {
             render={() => (
               <ItemsPage />
             )}
+          />
+          <Route
+            path="/item/:id"
+            render={() => (
+              <ItemPage />
+              )}
+          />
+          <Route
+          path="/item"
+          render={() => (
+            <ItemPage />
+          )}
           />
           <ProtectedRoute path='/post'>
             <Post />
