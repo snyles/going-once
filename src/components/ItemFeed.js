@@ -15,9 +15,12 @@ export default function ItemFeed({items}) {
   return (
     <>
       <ItemFeedStyle>
-        {items.length && items.map((item) => (
+        {items.length ? 
+        items.map((item) => (
           <ItemCard key={item._id} item={item} />
-        ))}
+        )) :
+        <p>No items found!</p>
+        }
       </ItemFeedStyle>
     </>
   )
