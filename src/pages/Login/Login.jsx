@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./Login.module.css";
 import authService from '../../services/authService'
 import useForm from "../../lib/useForm";
+import Page from "../../components/Page";
 
 export default function LoginPage({handleSignupOrLogin}) {
   const {inputs, handleChange} = useForm({
@@ -27,7 +28,7 @@ export default function LoginPage({handleSignupOrLogin}) {
   };
 
   return (
-    <main>
+    <Page>
       <h1>Log In</h1>
       <form className={styles.loginForm}autoComplete="off" onSubmit={handleSubmit}>
         <fieldset>
@@ -56,6 +57,7 @@ export default function LoginPage({handleSignupOrLogin}) {
           </div>
         </fieldset>
       </form>
-    </main>
+      <p>Don't have an account? <Link to="/signup">Sign up!</Link></p>
+    </Page>
   );
 }
