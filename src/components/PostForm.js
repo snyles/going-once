@@ -27,7 +27,7 @@ export default function PostForm
   
   return (
     <>
-      <StyledForm autoComplete="off" onSubmit={handleSubmit}>
+      <StyledForm autoComplete="off" onSubmit={(e)=> e.preventDefault()}>
         <fieldset>
           <label htmlFor="address">Item Address</label>
           <input 
@@ -73,7 +73,7 @@ export default function PostForm
             onChange={handleChange}
           />
         </fieldset>
-        <button type="submit">Post Item</button>
+        <button type="button" onClick={handleSubmit}>Post Item</button>
         <button type="button" onClick={resetForm}>Reset Form</button>
       </StyledForm>
     </>
