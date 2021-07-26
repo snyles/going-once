@@ -14,7 +14,7 @@ const MapDiv = styled.div`
   }
 `;
 
-export default function Map({items}) {
+export default function Map({items = []}) {
   const locData = useContext(LocationContext)
   const [map, setMap] = useState(null);
 
