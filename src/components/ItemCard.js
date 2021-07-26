@@ -21,16 +21,16 @@ const useStyles = makeStyles({
 
 export default function ItemCard({item}) {
   const classes = useStyles();
-  const { title, picture, description, condition } = item
+  const { title, description, condition } = item
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           className={classes.media}
           image={picture}
-          title={title}
-        />
+          title={title} 
+        />*/}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
