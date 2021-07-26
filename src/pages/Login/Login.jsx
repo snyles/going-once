@@ -20,7 +20,7 @@ export default function LoginPage({handleSignupOrLogin}) {
     try {
       await authService.login(inputs);
       handleSignupOrLogin();
-      history.push("/");
+      history.push("/items");
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
       setMessage(err.message)

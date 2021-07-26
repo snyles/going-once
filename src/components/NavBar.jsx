@@ -76,7 +76,7 @@ export default function NavBar ({ handleLogout }) {
       {/* </ul> */}
       {/* <ul> */}
       {user ?
-        <li><NavLink to="" onClick={handleLogout}>Log Out</NavLink></li>
+        <li><NavLink to="" onClick={handleLogout}>Log Out ({user.name})</NavLink></li>
       :
         <li className="login"><NavLink to="/login">Log In</NavLink></li>
       }

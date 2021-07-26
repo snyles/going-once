@@ -20,7 +20,7 @@ export default function App (props) {
   const handleLogout = () => {
     authService.logout();
     setUser(null)
-    history.push("/");
+    history.push("/items");
   }
 
   const handleSignupOrLogin = () => {
@@ -60,28 +60,15 @@ export default function App (props) {
               />
               )}
           />
-          <ProtectedRoute path='/users'>
-              <Users />
-          </ProtectedRoute>
           <Route
             path="/items"
             render={() => (
               <ItemsPage />
             )}
           />
-          <Route
-            path="/map"
-            render={() => (
-              <Map />
-            )}
-          />
-
-          <Route
-            path="/post"
-            render={() => (
-              <Post />
-            )}
-          />
+          <ProtectedRoute path='/post'>
+            <Post />
+          </ProtectedRoute>
 
           <Route
             path="/"

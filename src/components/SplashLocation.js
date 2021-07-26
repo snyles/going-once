@@ -38,7 +38,7 @@ export default function SplashLocation({location}) {
         />
         <Button
           onClick={() => {
-            history.push('/map')
+            history.push('/items')
           }}
         >
           Go
