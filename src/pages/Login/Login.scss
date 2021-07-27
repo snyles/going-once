@@ -1,0 +1,85 @@
+// #AppName {
+//   margin-top: 0vh;
+//   font-size: 25px;
+//   font-weight: 700;
+// }
+
+#loginTitle {
+  margin-top: 7vh;
+  margin-bottom: 3vh;
+}
+
+input {
+  display: flex;
+  flex-direction: column;
+}
+
+.formText {
+  border: 1px solid black;
+  height: 5.5vh;
+  font-size: large;
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-signupButton {
+  border-radius: 5rem;
+  width: 80vw;
+    &:hover {
+      text-decoration: none;
+    }
+}
+
+#loginText {
+  font-size: 20px;
+  // border-radius: 5rem;
+}
+
+.imgs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#googleSignin {
+  // flex: 1;
+  border: 3px solid black;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  margin: 2.5vh;
+}
+
+#facebookSignin {
+  // flex: 1;
+  border: 3px solid black;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  margin: 2.5vh;
+}
+
+#twitterSignin {
+  // flex: 1;
+  border: 3px solid black;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  margin: 2.5vh;
+}
+
+#noAccount {
+  font-size: 20px;
+  margin-top: 5vh;
+}
+
+
+#signupLink {
+  color: black;
+  text-decoration: underline;
+}
