@@ -1,4 +1,3 @@
-import NavBar from "./NavBar"
 import styled from 'styled-components'
 import { useContext } from "react";
 import GetCurrentLocation from "./GetCurrentLocation";
@@ -17,6 +16,7 @@ const PageStyles = styled.main`
   @media (max-width: 768px) {
     max-width: 100%;
     width: 100%;
+    padding: 0rem 1rem;
   }
   button {
     font-size: 1.5rem

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { LocationContext } from "../lib/LocationContext";
-import MarkerClusterer from '@googlemaps/markerclustererplus';
+// import MarkerClusterer from '@googlemaps/markerclustererplus';
 
 const MapDiv = styled.div`
   max-width: 768px;
