@@ -59,9 +59,10 @@ export default function NavBar ({ handleLogout }) {
   return (
     <NavStyles>
       <ul>
-        <li className="logo">Going Once</li>
-      {/* </ul>
-      <ul> */}
+        <li className="logo">
+          <NavLink to="/">Going Once
+          </NavLink>
+        </li>
         <li className="icon">
           <NavLink to="/items">
           <HomeOutlinedIcon 

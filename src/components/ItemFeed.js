@@ -20,7 +20,7 @@ export default function ItemFeed({items}) {
         items.map((item) => (
           <ItemCard key={item._id} item={item} />
         )) :
-        <p>No items found! <Link to="/">Try another city?</Link></p>
+        <p>No items found!</p>
         }
       </ItemFeedStyle>
     </>
