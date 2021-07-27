@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 html {
   --red: #ff0000;
   --blue: #0000ff;
