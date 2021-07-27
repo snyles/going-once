@@ -9,6 +9,7 @@ import styled from 'styled-components'
 import { UserContext } from "../lib/UserContext";
 import { Button } from "@material-ui/core";
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 
 const PageNav = styled.div`
   text-align: left;
@@ -26,9 +27,9 @@ const ImgDiv = styled.div`
 `;
 
 const ButtonDiv = styled.div`
-  margin: 2rem auto;
-  button: {
-    font-size: 2rem;
+  margin: 4rem auto;
+  button {
+    margin-right: 1rem;
   }
 `;
 
@@ -87,13 +88,22 @@ export default function ItemPage() {
               {itemData.category}
             </p> }
             <ButtonDiv>
+              {user && 
+              <Button 
+                variant="contained" 
+                color="primary"
+                onClick={()=>{console.log("add to favorites")}}
+              >
+                <FavoriteBorderOutlinedIcon fontSize="large" />Favorite
+              </Button>
+              }
               {user?._id === itemData?.owner && 
                 <Button 
                   variant="contained" 
                   color="secondary"
                   onClick={deleteItem}
                 >
-                  <DeleteOutlineIcon fontSize="large" /> Delete
+                  <DeleteOutlineIcon fontSize="large" />Delete
                 </Button>
               }
             </ButtonDiv>
