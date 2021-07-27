@@ -2,12 +2,14 @@ import styled from 'styled-components'
 import { useContext } from "react";
 import GetCurrentLocation from "./GetCurrentLocation";
 import { LocationContext } from "../lib/LocationContext";
+import Footer from './Footer';
 
 const PageStyles = styled.main`
   margin: 2rem auto;
   width: 80%;
   max-width: 1000px;
-  
+  flex: 1;
+
   @media (max-width: 992px) {
     max-width: 90%;
     width: 90%;
@@ -32,6 +34,7 @@ export default function Page({children}) {
       <PageStyles>
         {children}
       </PageStyles>
+      <Footer />
     </>
   )
 }
