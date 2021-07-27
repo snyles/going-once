@@ -20,6 +20,7 @@ const ImgDiv = styled.div`
     max-width: 768px;
     max-height: 400px;
     margin: 0 auto;
+    border-radius: 0.5rem;
   }
 `;
 export default function ItemPage() {
