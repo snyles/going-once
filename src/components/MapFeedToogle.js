@@ -13,10 +13,10 @@ span {
   padding: 0.5rem 1.5rem;
   font-size: 2rem;
   cursor: pointer;
-  background: lightblue;
+  background: #ccc;
 }
 span:hover {
-  background: #ccc;
+  background: #ddd;
 }
 span:first-child {
   border-right: none;
@@ -26,7 +26,7 @@ span:last-child {
   border-radius: 0 1rem 1rem 0;
 }
 .active {
-  background: pink;
+  background: var(--offWhite);
 }
 `;
 
