@@ -57,3 +57,15 @@ export function deleteItem(id) {
     { mode: "cors" })
   .then(res => res.json())
 }
+
+export function addOrRemoveFavorite(id) {
+  const url = `${BASE_URL}/favorite/${id}`
+  return fetch(
+    url,
+    {
+      method: "PUT",
+      headers: { Authorization: "Bearer " + tokenService.getToken()}
+    },
+    { mode: "cors" })
+  .then(res => res.json())
+}

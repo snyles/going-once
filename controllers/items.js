@@ -1,10 +1,12 @@
 const Item = require('../models/item');
+
 module.exports = {
   index,
   findItemById,
   findItemsByCity,
   postItem,
   deleteItem,
+  addOrRemoveFavorite,
 };
 
 function index(req, res) {
@@ -21,9 +23,6 @@ function findItemsByCity(req,res) {
     .then(items => res.json(items))
     .catch(err => res.status(400).json(err));
 }
-// function tagIndex(req, res) {
-//     Item.find({ tag: req.tag }).then(items => res.json(items))
-// }
 
 function findItemById(req, res) {
   console.log(req.params.id)
@@ -46,4 +45,16 @@ function deleteItem(req, res) {
   Item.findByIdAndDelete(req.params.id)
     .then(item => res.json(item))
     .catch(err => res.status(400).json(err))
+}
+
+
+async function addOrRemoveFavorite(req, res) {
+  const item = await Item.findById(req.params.id)
+  const favoriteIdx = item.favoritedBy.indexOf(req.user._id)  
+  favoriteIdx !== -1 ? 
+    item.favoritedBy.splice(favoriteIdx, 1)
+    : 
+    item.favoritedBy.push(req.user._id);
+  await item.save()
+  return res.json(item)
 }

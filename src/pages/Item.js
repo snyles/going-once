@@ -56,6 +56,15 @@ export default function ItemPage() {
     history.push('/items')
   }
 
+  const favoriteOrUnfavorite = async () => {
+    try {
+      const newItem = await itemService.addOrRemoveFavorite(itemData?._id)
+      setItemData(newItem)
+    } catch (err) {
+      setError(err.message)
+    }
+  }
+
   if (!id) return <Redirect to="/items" />
   return (
     <Page>
@@ -93,10 +102,13 @@ export default function ItemPage() {
               {user && 
               <Button 
                 variant="contained" 
-                color="primary"
-                onClick={()=>{console.log("add to favorites")}}
+                color={itemData?.favoritedBy.includes(user._id) ? 
+                  "secondary" : "primary" }
+                onClick={favoriteOrUnfavorite}
               >
-                <FavoriteBorderOutlinedIcon fontSize="large" />Favorite
+                <FavoriteBorderOutlinedIcon fontSize="large" />
+                {itemData?.favoritedBy.includes(user._id) ? 
+                  'Unfavorite' : 'Favorite' }
               </Button>
               }
               {user?._id === itemData?.owner && 
