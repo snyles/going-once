@@ -65,14 +65,15 @@ export default function PostForm
             value={inputs.category}
             onChange={handleChange}
           >
-            <option>Furniture</option>
-            <option>Household</option>
-            <option>Decor</option>
-            <option>Appliances</option>
-            <option>Clothes</option>
-            <option>Personal Care</option>
-            <option>Food</option>
-            <option>Other / Miscellaneous</option>
+            <option value="">Select</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Household">Household</option>
+            <option value="Decor">Decor</option>
+            <option value="Appliances">Appliances</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Food">Food</option>
+            <option value="Other">Other / Miscellaneous</option>
           </select>
           <label htmlFor="condition">Condition *</label>
           <select 
@@ -80,10 +81,11 @@ export default function PostForm
             value={inputs.condition}
             onChange={handleChange}
           >
-            <option>Good</option>
-            <option>New</option>
-            <option>Poor</option>
-            <option>Other</option>
+            <option value="">Select</option>
+            <option value="New">New</option>
+            <option value="Good">Good</option>
+            <option value="Poor">Poor</option>
+            <option value="Other">Other</option>
           </select>
           <label htmlFor="picture">Add an Image</label>
           <input
