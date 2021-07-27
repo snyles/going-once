@@ -1,7 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
-import { LocationContext } from "../lib/LocationContext";
-import MarkerClusterer from '@googlemaps/markerclustererplus';
 
 const MapDiv = styled.div`
   max-width: 500px;
@@ -14,7 +12,6 @@ const MapDiv = styled.div`
 `;
 
 export default function ItemMap({coords}) {
-  console.log(coords)
 
   useEffect(() => {
     const map = new window.google.maps.Map(document.getElementById("item-map"), {
