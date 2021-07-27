@@ -23,16 +23,16 @@ const useStyles = makeStyles({
 export default function ItemCard({item}) {
   const history = useHistory()
   const classes = useStyles();
-  const { title, description, condition } = item
+  const { title, description, picture, condition } = item
 
   return (
     <Card className={classes.root}>
       <CardActionArea onClick={()=> history.push(`/item/${item._id}`)}>
-        {/* <CardMedia
+        <CardMedia
           className={classes.media}
           image={picture}
           title={title} 
-        />*/}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
@@ -45,11 +45,11 @@ export default function ItemCard({item}) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small" color="primary">
           Wishlist
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }

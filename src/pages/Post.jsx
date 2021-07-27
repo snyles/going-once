@@ -35,29 +35,28 @@ export default function Post() {
       owner: user._id
     }
     if (postData.image) {
-      const data = new FormData()
-      data.append("file", inputs.image)
-      data.append("upload_preset", "f6qcny15")
-      data.append("cloud_name", "dndtrmv6u")
-
-      fetch("https://api.cloudinary.com/v1_1/dndtrmv6u/image/upload",{
-        method: "post",
-        body: data,
-      })
-      .then(res => res.json())
-      .then(async (data) => {
-        console.log(data)
-        postData.picture = data.secure_url
-        const post = await itemService.postItem(postData)
-        history.push(`/item/${post._id}`)
-
-      })
-      .catch(err => console.log(err))
+      const imgData = await uploadImage()
+      console.log("imgData", imgData)
+      postData.picture = imgData.secure_url;
     }
-    else {
-      const post = await itemService.postItem(postData)
-      history.push(`/item/${post._id}`)
-    }
+    const post = await itemService.postItem(postData)
+    history.push(`/item/${post._id}`)
+
+  }
+
+  const uploadImage = async () => {
+    const data = new FormData()
+    data.append("file", inputs.image)
+    data.append("upload_preset", "f6qcny15")
+    data.append("cloud_name", "dndtrmv6u")
+
+    return fetch("https://api.cloudinary.com/v1_1/dndtrmv6u/image/upload",{
+      method: "post",
+      body: data,
+    })
+    .then(res => res.json())
+    .then(data => data)
+    .catch(err => console.log(err))
   }
 
   useEffect(()=> {
