@@ -11,6 +11,7 @@ const itemSchema = new mongoose.Schema({
   city: {type: String},
   picture: {type: String},
   condition: {type: String},
+  category: {type: String},
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
