@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import authService from "../../services/authService";
 import useForm from "../../lib/useForm";
 import styles from './SignupForm.module.css'
 import { Button } from "@material-ui/core";
+
+import googleLogo from '../../Logos/googleLogo.png'
+import facebookLogo from '../../Logos/facebookLogo.png'
+import twitterLogo from '../../Logos/twitterLogo.png'
+
+import './SignupForm.css'
 
 export default function SignupForm( {handleSignupOrLogin} ) {
   const {inputs, handleChange, resetForm } = useForm({
@@ -35,49 +41,63 @@ export default function SignupForm( {handleSignupOrLogin} ) {
 
   return (
     <>
-      <h1>Sign Up</h1>
+      <h1 id='signupTitle'>Create your account</h1>
+      <div className='imgs'>
+        <img src={googleLogo} id='googleSignin' />
+        <img src={facebookLogo} id='facebookSignin' />
+        <img src={twitterLogo} id='twitterSignin' />
+      </div>
       <form autoComplete="off" onSubmit={(e)=>e.preventDefault()} className={styles.signupForm}>
         <fieldset>
           {message && <p>{message}</p>}
-          <label htmlFor="name">Name</label>
+          {/* <label htmlFor="name">Name</label> */}
           <input
+            className='formText'
             type="text"
             autoComplete="off"
             id="name"
             value={name}
             name="name"
+            placeholder="Name"
             onChange={handleChange}
           />
-          <label htmlFor="email">Email</label>
+          {/* <label htmlFor="email">Email</label> */}
           <input
+            className='formText'
             type="text"
             autoComplete="off"
             id="email"
             value={email}
             name="email"
+            placeholder="Email"
             onChange={handleChange}
           />
-          <label htmlFor="password">Password</label>
+          {/* <label htmlFor="password">Password</label> */}
           <input
+            className='formText'
             type="password"
             autoComplete="off"
             id="password"
             value={password}
             name="password"
+            placeholder="Password"
             onChange={handleChange}
           />
-          <label htmlFor="confirm">Confirm Password</label>
+          {/* <label htmlFor="confirm">Confirm Password</label> */}
           <input
+            className='formText'
             type="password"
             autoComplete="off"
             id="confirm"
             value={passwordConf}
             name="passwordConf"
+            placeholder="Password Confirmation"
             onChange={handleChange}
           />
           <div className={styles.buttons}>
             <Button 
               variant="contained"
+              color="primary"
               onClick={handleSubmit}
               disabled={isFormInvalid()}
             >
@@ -85,6 +105,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
             </Button>
             <Button 
               variant="contained"
+              color="secondary"
               onClick={resetForm}
             >
               Reset
@@ -92,6 +113,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
           </div>
         </fieldset>
       </form>
+      <p id='yesAccount'>Already have an account? <Link to='/login' id='loginLink'>Log in!</Link></p>
     </>
   );
 }
