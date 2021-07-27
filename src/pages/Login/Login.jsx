@@ -38,9 +38,9 @@ export default function LoginPage({handleSignupOrLogin}) {
     <Page>
       <h1 id='loginTitle'>Welcome Back!<br></br>Log In</h1>
       <div className='imgs'>
-        <img src={googleLogo} id='googleSignin' />
-        <img src={facebookLogo} id='facebookSignin' />
-        <img src={twitterLogo} id='twitterSignin' />
+        <img src={googleLogo} id='googleSignin' alt="Login with Google" />
+        <img src={facebookLogo} id='facebookSignin' alt="Login with Facebook"  />
+        <img src={twitterLogo} id='twitterSignin' alt="Login with Twitter" />
       </div>
       <form className={styles.loginForm} autoComplete="off" onSubmit={(e)=>e.preventDefault()}>
         <fieldset>
