@@ -10,6 +10,7 @@ import { UserContext } from "../lib/UserContext";
 import { Button } from "@material-ui/core";
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import DeleteConfirm from '../components/DeleteConfirm'
 
 const PageNav = styled.div`
   text-align: left;
@@ -39,6 +40,7 @@ export default function ItemPage() {
   const {id} = useParams();
   const [itemData, setItemData] = useState(null)
   const [error, setError] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const fetchItem = async (id) => {
@@ -101,7 +103,7 @@ export default function ItemPage() {
                 <Button 
                   variant="contained" 
                   color="secondary"
-                  onClick={deleteItem}
+                  onClick={() => setIsOpen(true)}
                 >
                   <DeleteOutlineIcon fontSize="large" />Delete
                 </Button>
@@ -120,6 +122,7 @@ export default function ItemPage() {
           }
         </ColTwo>
       </TwoCols>
+      <DeleteConfirm isOpen={isOpen} setIsOpen={setIsOpen} deleteItem={deleteItem} />
     </Page>
   )
 }
