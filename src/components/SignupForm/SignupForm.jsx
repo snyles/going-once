@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import authService from "../../services/authService";
-import useForm from "../../lib/useForm";
+import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
+import authService from "../../services/authService"
+import useForm from "../../lib/useForm"
 import { Link } from 'react-router-dom'
 import styles from './SignupForm.module.css'
 
