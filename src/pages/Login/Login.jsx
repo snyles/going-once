@@ -12,6 +12,8 @@ import twitterLogo from '../../assets/logos/twitterLogo.png'
 
 import "./Login.css"
 
+import './Login.css'
+
 export default function LoginPage({handleSignupOrLogin}) {
   const {inputs, handleChange} = useForm({
     email: "",
