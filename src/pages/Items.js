@@ -1,29 +1,28 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ItemFeed from "../components/ItemFeed";
 import Map from "../components/Map";
 import Page from "../components/Page";
+import { LocationContext } from "../lib/LocationContext";
 import * as itemService from "../services/itemService"
 
 export default function ItemsPage () {
   const [items, setItems] = useState([]);
+  const locData = useContext(LocationContext);
 
   useEffect( () => {
     async function fetchItems() {
-      const itemsData = await itemService.getAllItems()
-      // console.log(itemsData)
-      setItems(itemsData)
+      if (locData.location.name) {
+        const itemsData = await itemService.getItemsByCity(locData?.location?.name)
+        setItems(itemsData)
+      }
     }
     fetchItems();
-  },[])
+  },[locData])
 
   return (
     <Page>
-      {items.length && 
-      <>
-        <Map items={items} />
-        <ItemFeed items={items} />
-      </>
-      }
+      <Map items={items} />
+      <ItemFeed items={items} />
     </Page>
   )
 }

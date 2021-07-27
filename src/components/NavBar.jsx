@@ -54,27 +54,32 @@ const NavStyles = styled.nav`
   }
 `;
 
-
 export default function NavBar ({ handleLogout }) {
   const user = useContext(UserContext)
   return (
     <NavStyles>
       <ul>
-        <li className="logo">Going Once!</li>
+        <li className="logo">Going Once</li>
       {/* </ul>
       <ul> */}
-        <li className="icon"><NavLink to="/items">
+        <li className="icon">
+          <NavLink to="/items">
           <HomeOutlinedIcon 
             fontSize="inherit" 
           />
-        </NavLink></li>
-        <li className="icon"><NavLink to="/post">
+          </NavLink>
+        </li>
+        <li className="icon">
+          <NavLink to="/post">
           <AddCircleOutlineIcon fontSize="inherit" />
-        </NavLink></li>
-        <li className="icon"><NavLink to="/favorites">
-          <FavoriteBorderOutlinedIcon fontSize="inherit"/></NavLink></li>
-      {/* </ul> */}
-      {/* <ul> */}
+          </NavLink>
+        </li>
+        <li className="icon">
+          <NavLink to="/favorites">
+          <FavoriteBorderOutlinedIcon fontSize="inherit"/>
+          </NavLink>
+        </li>
+
       {user ?
         <li><NavLink to="" onClick={handleLogout}>Log Out ({user.name})</NavLink></li>
       :

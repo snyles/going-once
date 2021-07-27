@@ -24,12 +24,16 @@ export default function PostForm
       addressChange(coords)
     })
   },[addressChange]);
+
+  const isFormInvalid = () => {
+    return !(inputs.address && inputs.title && inputs.condition && inputs.category )
+  }
   
   return (
     <>
       <StyledForm autoComplete="off" onSubmit={(e)=> e.preventDefault()}>
         <fieldset>
-          <label htmlFor="address">Item Address</label>
+          <label htmlFor="address">Item Address *</label>
           <input 
             type="text"
             name="address"
@@ -39,7 +43,7 @@ export default function PostForm
             onBlur={handleChange}
             ref={addressInput}
           />
-          <label htmlFor="title">Post Title</label>
+          <label htmlFor="title">Post Title *</label>
           <input 
             type="text"
             name="title"
@@ -55,7 +59,7 @@ export default function PostForm
             onChange={handleChange}
 
           />
-          <label htmlFor="category">Item Category</label>
+          <label htmlFor="category">Item Category *</label>
           <select 
             name="category"
             value={inputs.category}
@@ -63,17 +67,32 @@ export default function PostForm
           >
             <option>Furniture</option>
             <option>Household</option>
-            <option>Other</option>
+            <option>Decor</option>
+            <option>Appliances</option>
+            <option>Clothes</option>
+            <option>Personal Care</option>
+            <option>Food</option>
+            <option>Other / Miscellaneous</option>
           </select>
-          <label htmlFor="condition">Condition</label>
-          <input 
-            type="text"
+          <label htmlFor="condition">Condition *</label>
+          <select 
             name="condition"
             value={inputs.condition}
             onChange={handleChange}
+          >
+            <option>Good</option>
+            <option>New</option>
+            <option>Poor</option>
+            <option>Other</option>
+          </select>
+          <label htmlFor="picture">Add an Image</label>
+          <input
+            type="file"
+            name="image"
+            onChange={handleChange}
           />
         </fieldset>
-        <button type="button" onClick={handleSubmit}>Post Item</button>
+        <button type="button" disabled={isFormInvalid()} onClick={handleSubmit}>Post Item</button>
         <button type="button" onClick={resetForm}>Reset Form</button>
       </StyledForm>
     </>

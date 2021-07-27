@@ -1,18 +1,41 @@
 import tokenService from "../services/tokenService";
 const BASE_URL = "/api/items/";
 
-export async function getAllItems() {
-    const res = await fetch(
-      BASE_URL,
-      {
-        headers: new Headers({'Content-Type': 'application/json'})
-      },
-      { mode: "cors" });
-    return await res.json();
-  }
+export function getAllItems() {
+  return fetch(
+    BASE_URL,
+    {
+      headers: new Headers({'Content-Type': 'application/json'})
+    },
+    { mode: "cors" })
+  .then(res => res.json())
+}
+
+export function getItemsByCity(city) {
+  const formatCity = city.replace(', ','-')
+  const url = `${BASE_URL}city/${formatCity}`
+  console.log("url", url)
+  return fetch(
+    url,
+    {
+      headers: new Headers({'Content-Type': 'application/json'})
+    },
+    { mode: "cors" })
+  .then(res => res.json())
+}
+
+export function getItemsById(id) {
+  const url = `${BASE_URL}${id}`;
+  return fetch(
+    url,
+    {
+      headers: new Headers({'Content-Type': 'application/json'})
+    },
+    { mode: "cors" })
+  .then(res => res.json())
+}
 
 export function postItem(item) {
-  console.log("service", item)
   return fetch(
     BASE_URL,
     {
@@ -24,13 +47,13 @@ export function postItem(item) {
   .then(res => res.json())
 }
 
-export async function deleteItem(item) {
-  const res = await fetch(
-    BASE_URL,
+export function deleteItem(id) {
+  return fetch(
+    `${BASE_URL}${id}`,
     {
       method: "DELETE",
       headers: { Authorization: "Bearer " + tokenService.getToken() },
     },
-    { mode: "cors" });
-  return await res.json();
+    { mode: "cors" })
+  .then(res => res.json())
 }
