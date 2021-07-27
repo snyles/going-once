@@ -10,6 +10,7 @@ router.get("/:id", itemCtrl.findItemById)
 // router.post("/", itemCtrl.postItem)
 /*---------- Protected Routes ----------*/
 router.use(require("../config/auth"));
+router.get("/favorite/:id", checkAuth, itemCtrl.getFavorites)
 router.post("/", checkAuth, itemCtrl.postItem)
 router.put("/favorite/:id", checkAuth, itemCtrl.addOrRemoveFavorite)
 router.delete('/:id', checkAuth, itemCtrl.deleteItem)

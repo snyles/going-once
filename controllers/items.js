@@ -7,6 +7,7 @@ module.exports = {
   postItem,
   deleteItem,
   addOrRemoveFavorite,
+  getFavorites,
 };
 
 function index(req, res) {
@@ -57,4 +58,10 @@ async function addOrRemoveFavorite(req, res) {
     item.favoritedBy.push(req.user._id);
   await item.save()
   return res.json(item)
+}
+
+function getFavorites(req, res) {
+  Item.find({favoritedBy: req.params.id})
+  .then(items => res.json(items))
+  .catch(err => res.status(400).json(err))
 }

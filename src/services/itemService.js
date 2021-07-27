@@ -69,3 +69,14 @@ export function addOrRemoveFavorite(id) {
     { mode: "cors" })
   .then(res => res.json())
 }
+
+export function getFavorites(userId) {
+  const url = `${BASE_URL}/favorite/${userId}`
+  return fetch(
+    url,
+    {
+      headers: { Authorization: "Bearer " + tokenService.getToken(), 'content-type': 'application/json'},
+    },
+    { mode: "cors" })
+  .then(res => res.json())
+}
