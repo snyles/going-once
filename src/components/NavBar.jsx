@@ -13,6 +13,7 @@ const NavStyles = styled.nav`
   justify-content: center;
   margin: 0 auto;
   padding: 1rem 0;
+  width: 80%;
   max-width: 768px;
 
   ul {
