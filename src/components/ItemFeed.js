@@ -1,6 +1,5 @@
 import ItemCard from "./ItemCard";
 import styled from "styled-components"
-import { Link } from "react-router-dom";
 
 const ItemFeedStyle = styled.div`
   display: flex;
