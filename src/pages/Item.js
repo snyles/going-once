@@ -67,7 +67,7 @@ export default function ItemPage() {
           <p>{itemData?.category}</p>
           <p>{itemData?.lat}</p>
           <p>{itemData?.lng}</p>
-          {user._id === itemData?.owner && 
+          {user?._id === itemData?.owner && 
             <Button 
               variant="contained" 
               color="secondary"
