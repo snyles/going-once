@@ -8,6 +8,9 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import styled from 'styled-components'
 import { UserContext } from "../lib/UserContext";
 import { Button } from "@material-ui/core";
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import DeleteConfirm from '../components/DeleteConfirm'
 
 const PageNav = styled.div`
   text-align: left;
@@ -23,12 +26,21 @@ const ImgDiv = styled.div`
     border-radius: 0.5rem;
   }
 `;
+
+const ButtonDiv = styled.div`
+  margin: 4rem auto;
+  button {
+    margin-right: 1rem;
+  }
+`;
+
 export default function ItemPage() {
   const user = useContext(UserContext)
   const history = useHistory()
   const {id} = useParams();
   const [itemData, setItemData] = useState(null)
   const [error, setError] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const fetchItem = async (id) => {
@@ -40,8 +52,17 @@ export default function ItemPage() {
 
   const deleteItem = async () => {
     if (itemData?.owner !== user._id) return
-    const result = await itemService.deleteItem(itemData?._id)
+    await itemService.deleteItem(itemData?._id)
     history.push('/items')
+  }
+
+  const favoriteOrUnfavorite = async () => {
+    try {
+      const newItem = await itemService.addOrRemoveFavorite(itemData?._id)
+      setItemData(newItem)
+    } catch (err) {
+      setError(err.message)
+    }
   }
 
   if (!id) return <Redirect to="/items" />
@@ -53,7 +74,7 @@ export default function ItemPage() {
         </Link>
       </PageNav>
       {error && <p>{error}</p>}
-      <h1>{itemData?.title}</h1>
+      {itemData?.title && <h1>{itemData.title}</h1>}
       {itemData?.picture && 
         <ImgDiv>
           <img src={itemData.picture} alt={itemData.title} />
@@ -62,20 +83,44 @@ export default function ItemPage() {
       <TwoCols>
         <ColOne>
           <h2>Details:</h2>
-          <p>{itemData?.description}</p>
-          <p>{itemData?.condition}</p>
-          <p>{itemData?.category}</p>
-          <p>{itemData?.lat}</p>
-          <p>{itemData?.lng}</p>
-          {user._id === itemData?.owner && 
-            <Button 
-              variant="contained" 
-              color="secondary"
-              onClick={deleteItem}
-            >
-              Delete Item
-            </Button>
-          }
+          { itemData?.description && 
+            <p>
+              <strong>Description: </strong>
+              {itemData.description}
+            </p> }
+          { itemData?.condition && 
+            <p>
+              <strong>Condition: </strong>
+              {itemData.condition}
+            </p> }
+          { itemData?.category && 
+            <p>
+              <strong>Category: </strong>
+              {itemData.category}
+            </p> }
+            <ButtonDiv>
+              {user && 
+              <Button 
+                variant="contained" 
+                color={itemData?.favoritedBy.includes(user._id) ? 
+                  "secondary" : "primary" }
+                onClick={favoriteOrUnfavorite}
+              >
+                <FavoriteBorderOutlinedIcon fontSize="large" />
+                {itemData?.favoritedBy.includes(user._id) ? 
+                  'Unfavorite' : 'Favorite' }
+              </Button>
+              }
+              {user?._id === itemData?.owner && 
+                <Button 
+                  variant="contained" 
+                  color="secondary"
+                  onClick={() => setIsOpen(true)}
+                >
+                  <DeleteOutlineIcon fontSize="large" />Delete
+                </Button>
+              }
+            </ButtonDiv>
         </ColOne>
         <ColTwo>
           {itemData?.lat && itemData?.lng && 
@@ -89,9 +134,7 @@ export default function ItemPage() {
           }
         </ColTwo>
       </TwoCols>
-
+      <DeleteConfirm isOpen={isOpen} setIsOpen={setIsOpen} deleteItem={deleteItem} />
     </Page>
   )
-
-
 }

@@ -42,5 +42,8 @@ export const StyledForm = styled.form`
   button {
     margin-right: 1rem;
   }
+  option:first-child {
+    font-style: italic;
+  }
 
 `;
