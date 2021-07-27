@@ -13,6 +13,15 @@ const PageNav = styled.div`
   text-align: left;
   font-size: 2rem;
 `;
+
+const ImgDiv = styled.div`
+  margin: 2rem auto;
+  img {
+    max-width: 768px;
+    max-height: 400px;
+    margin: 0 auto;
+  }
+`;
 export default function ItemPage() {
   const user = useContext(UserContext)
   const history = useHistory()
@@ -43,9 +52,15 @@ export default function ItemPage() {
         </Link>
       </PageNav>
       {error && <p>{error}</p>}
+      <h1>{itemData?.title}</h1>
+      {itemData?.picture && 
+        <ImgDiv>
+          <img src={itemData.picture} alt={itemData.title} />
+        </ImgDiv>
+      }
       <TwoCols>
         <ColOne>
-          <h1>{itemData?.title}</h1>
+          <h2>Details:</h2>
           <p>{itemData?.description}</p>
           <p>{itemData?.condition}</p>
           <p>{itemData?.category}</p>
@@ -64,7 +79,7 @@ export default function ItemPage() {
         <ColTwo>
           {itemData?.lat && itemData?.lng && 
             <>
-              <p>Item Location</p>
+              <h2>Location:</h2>
               <ItemMap coords={{
                 lat: itemData.lat,
                 lng: itemData.lng,

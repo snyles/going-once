@@ -32,10 +32,10 @@ function findItemById(req, res) {
     .catch(err => res.status(400).json(err))
 }
 
-async function postItem(req, res) {
+function postItem(req, res) {
   const item = new Item(req.body);
   try {
-    await item.save()
+    item.save()
     .then((result) => res.json(result));
   } catch (err) {
     res.status(400).json(err);

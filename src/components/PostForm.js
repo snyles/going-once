@@ -72,6 +72,12 @@ export default function PostForm
             value={inputs.condition}
             onChange={handleChange}
           />
+          <label htmlFor="picture">Add an Image</label>
+          <input
+            type="file"
+            name="image"
+            onChange={handleChange}
+          />
         </fieldset>
         <button type="button" onClick={handleSubmit}>Post Item</button>
         <button type="button" onClick={resetForm}>Reset Form</button>
