@@ -40,9 +40,9 @@ export default function ItemCard({item}) {
           <Typography variant="body2" color="textSecondary" component="p">
             {description}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          {/* <Typography variant="body2" color="textSecondary" component="p">
             {condition}
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
       {/* <CardActions>
