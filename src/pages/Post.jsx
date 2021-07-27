@@ -19,8 +19,7 @@ export default function Post() {
     description: "",
     address: "",
     category: "",
-    // city: "",
-    // owner: "",
+    image: "",
   });
 
   const [pickerCoords, setPickerCoords] = useState(locData.location.coords)
@@ -35,8 +34,30 @@ export default function Post() {
       lng: finalCoords.lng,
       owner: user._id
     }
-    await itemService.postItem(postData)
-    history.push('/map')
+    if (postData.image) {
+      const data = new FormData()
+      data.append("file", inputs.image)
+      data.append("upload_preset", "f6qcny15")
+      data.append("cloud_name", "dndtrmv6u")
+
+      fetch("https://api.cloudinary.com/v1_1/dndtrmv6u/image/upload",{
+        method: "post",
+        body: data,
+      })
+      .then(res => res.json())
+      .then(async (data) => {
+        console.log(data)
+        postData.picture = data.secure_url
+        const post = await itemService.postItem(postData)
+        history.push(`/item/${post._id}`)
+
+      })
+      .catch(err => console.log(err))
+    }
+    else {
+      const post = await itemService.postItem(postData)
+      history.push(`/item/${post._id}`)
+    }
   }
 
   useEffect(()=> {
