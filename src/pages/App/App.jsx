@@ -13,7 +13,7 @@ import NavBar from "../../components/NavBar";
 import Favorites from "../Favorites";
 import ItemPage from "../Item";
 
-export default function App (props) {
+export default function App () {
   const [user, setUser] = useState(authService.getUser())
   const history = useHistory();
 

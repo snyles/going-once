@@ -17,6 +17,7 @@ const MapDiv = styled.div`
 export default function Map({items = []}) {
   const locData = useContext(LocationContext)
   const [map, setMap] = useState(null);
+  const [markers, setMarkers] = useState([])
 
   useEffect(() => {
     const map = new window.google.maps.Map(document.getElementById("map"), {
@@ -32,6 +33,7 @@ export default function Map({items = []}) {
   },[locData])
 
   useEffect(() => {
+    resetMarkers()
     const googleMarkers = []
     for (const item of items) {
       const pos = {
@@ -56,11 +58,17 @@ export default function Map({items = []}) {
       }))
       googleMarkers.push(gMarker)
     }
+    setMarkers(googleMarkers)
     // const markerCluster = new MarkerClusterer(map, googleMarkers, {
     //   imagePath: "https://unpkg.com/@googlemaps/markerclustererplus@1.0.3/images/m",
     // });
   },[items, map])
 
+  const resetMarkers = () => {
+    for (const mark of markers) {
+      mark.setMap(null)
+    }
+  }
 
   return (
     <MapDiv id="map">Loading...</MapDiv>

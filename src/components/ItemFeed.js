@@ -7,7 +7,7 @@ const ItemFeedStyle = styled.div`
   justify-content: space-evenly;
   width: 100%;
   max-width: 768px;
-  margin: 3rem auto 0 auto;
+  margin: 1rem auto 0 auto;
 `;
 
 export default function ItemFeed({items}) {
