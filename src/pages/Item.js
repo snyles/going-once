@@ -71,6 +71,7 @@ export default function ItemPage() {
     const postData = {
       itemId: itemData?._id,
       comment: comment,
+      commentPostersName: user.name,
       postedBy: user._id
     }
     await itemService.postComment(postData)
@@ -132,7 +133,7 @@ export default function ItemPage() {
                 </Button>
               }
             </ButtonDiv>
-            <CommentForm postComment={postComment}/>
+            <CommentForm postComment={postComment} />
         </ColOne>
         <ColTwo>
           {itemData?.lat && itemData?.lng && 

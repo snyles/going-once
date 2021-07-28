@@ -50,7 +50,7 @@ export function postItem(item) {
 export function postComment(data) {
   console.log(data)
   const url = `${BASE_URL}${data.itemId}`;
-  const commentData = {content: data.comment, postedBy: data.postedBy}
+  const commentData = {content: data.comment, commentPostersName: data.commentPostersName,  postedBy: data.postedBy}
   return fetch(
     url,
     {
