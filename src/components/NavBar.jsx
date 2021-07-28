@@ -1,59 +1,10 @@
 import { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { UserContext } from '../lib/UserContext';
-import styled from 'styled-components'
-
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-
-const NavStyles = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 1rem 0;
-  width: 80%;
-  max-width: 768px;
-
-  ul {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    font-size: 2rem;
-  }
-  li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  li:hover{
-    background: #efefef;
-  }
-  li:last-child {
-    margin-left: auto;
-  }
-  li:first-child {
-    margin-right: auto;
-  }
-  a {
-    color: var(--black)
-  }
-  .icon {
-    font-size: 4rem;
-  }
-  .logo {
-    font-size: 2.5rem;
-  }
-`;
+import { NavStyles } from './Styles/NavStyles';
 
 export default function NavBar ({ handleLogout }) {
   const user = useContext(UserContext)
@@ -64,21 +15,22 @@ export default function NavBar ({ handleLogout }) {
           <NavLink to="/">Going Once
           </NavLink>
         </li>
-        <li className="icon">
+        <li>
           <NavLink to="/items">
-          <HomeOutlinedIcon 
-            fontSize="inherit" 
-          />
+          <span className="icon"><HomeOutlinedIcon fontSize="inherit" /></span>
+          Home
           </NavLink>
         </li>
-        <li className="icon">
+        <li>
           <NavLink to="/post">
-          <AddCircleOutlineIcon fontSize="inherit" />
+          <span className="icon"><AddCircleOutlineIcon fontSize="inherit" /></span>
+          Post
           </NavLink>
         </li>
-        <li className="icon">
+        <li>
           <NavLink to="/favorites">
-          <FavoriteBorderOutlinedIcon fontSize="inherit"/>
+          <span className="icon"><FavoriteBorderOutlinedIcon fontSize="inherit"/></span>
+          Favorites
           </NavLink>
         </li>
 
