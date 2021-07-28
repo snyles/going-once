@@ -47,6 +47,21 @@ export function postItem(item) {
   .then(res => res.json())
 }
 
+export function postComment(data) {
+  console.log(data)
+  const url = `${BASE_URL}${data.itemId}`;
+  const commentData = {comment: data.comment, postedBy: data.postedBy}
+  return fetch(
+    url,
+    {
+      method: "POST",
+      headers: { Authorization: "Bearer " + tokenService.getToken(), 'content-type': 'application/json'},
+      body: JSON.stringify(commentData)
+    },
+    { mode: "cors" })
+  .then(res => res.json())
+}
+
 export function deleteItem(id) {
   return fetch(
     `${BASE_URL}${id}`,
