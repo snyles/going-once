@@ -2,7 +2,7 @@ import useForm from "../lib/useForm";
 import { StyledForm } from "./Styles/Form"
 
 export default function CommentForm({postComment}) {
-    const {inputs, handleChange } = useForm({
+    const {inputs, handleChange, resetForm} = useForm({
         comment: "",
       })
     return (
@@ -16,7 +16,15 @@ export default function CommentForm({postComment}) {
             onChange={handleChange}
           />
         </fieldset>
-        <button type="button" onClick={() => {postComment(inputs.comment)}}>Post Comment</button>
+        <button 
+          type="button" 
+          onClick={() => {
+            postComment(inputs.comment)
+            resetForm()
+          }}
+        >
+          Post Comment
+        </button>
       </StyledForm>
     )
 }

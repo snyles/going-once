@@ -12,6 +12,7 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import DeleteConfirm from '../components/DeleteConfirm'
 import CommentForm from "../components/CommentForm";
+import CommentMap from "../components/CommentMap";
 
 const PageNav = styled.div`
   text-align: left;
@@ -74,7 +75,8 @@ export default function ItemPage() {
       commentPostersName: user.name,
       postedBy: user._id
     }
-    await itemService.postComment(postData)
+    const newItem = await itemService.postComment(postData)
+    setItemData(newItem)
   }
 
   if (!id) return <Redirect to="/items" />
@@ -133,6 +135,7 @@ export default function ItemPage() {
                 </Button>
               }
             </ButtonDiv>
+            <CommentMap comments={itemData?.comments}/>
             <CommentForm postComment={postComment} />
         </ColOne>
         <ColTwo>
