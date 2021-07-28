@@ -1,12 +1,17 @@
 import styled from "styled-components"
 
 const CommentCardStyle = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  text-align: start;
   width: 100%;
-  max-width: 768px;
-  margin: 3rem auto 0 auto;
+  .poster {
+  }
+
+  .comment {
+    border-radius: 10px;
+    background-color:#E0E4E7;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export default function CommentCard ({comment}) {
@@ -15,7 +20,8 @@ export default function CommentCard ({comment}) {
   return (
     <>
       <CommentCardStyle>
-        {content} {commentPostersName}
+          <div className="poster">{commentPostersName}</div>
+          <div className="comment">{content}</div>
       </CommentCardStyle>
     </>
   )

@@ -4,10 +4,17 @@ import styled from "styled-components"
 const CommentMapStyle = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: left;
   width: 100%;
-  max-width: 768px;
+  max-width: 300px;
   margin: 3rem auto 0 auto;
+  .p {
+    border-radius: 10px;
+    background-color:#E0E4E7;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
 `;
 
 export default function CommentMap ({comments}) {
@@ -19,7 +26,7 @@ export default function CommentMap ({comments}) {
         comments.map((comment) => (
           <CommentCard key={comment._id} comment={comment} />
         )) :
-        <p>No Comments Yet!</p>
+        <p className="p">No Comments Yet!</p>
         }
       </CommentMapStyle>
     </>
