@@ -15,6 +15,9 @@ const ItemFilterDiv = styled.div`
     max-width: 768px;
     margin: 0 auto;
     overflow-x: scroll;
+    @media (max-width: 768px) {
+      max-width: 95%;
+    }
   }
   label {
     display: flex;
@@ -33,6 +36,7 @@ const ItemFilterDiv = styled.div`
       border-radius: 0.5rem;
     }
   }
+  
 `;
 
 export default function ItemCategoryFilter ({items, setFiltered}) {
