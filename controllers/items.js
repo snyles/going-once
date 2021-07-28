@@ -8,6 +8,7 @@ module.exports = {
   deleteItem,
   addOrRemoveFavorite,
   getFavorites,
+  postComment,
 };
 
 function index(req, res) {
@@ -64,4 +65,17 @@ function getFavorites(req, res) {
   Item.find({favoritedBy: req.params.id})
   .then(items => res.json(items))
   .catch(err => res.status(400).json(err))
+}
+
+async function postComment(req, res) {
+  try {
+    console.log(req.body)
+    const item = await Item.findById(req.params.id)
+    console.log(item)
+    item.comments.push(req.body)
+    await item.save()
+    return res.json(item)
+  } catch (err) {
+    res.status(400).json(err);
+  }
 }
