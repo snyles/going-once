@@ -46,5 +46,6 @@ export const NavStyles = styled.nav`
   }
   .logo {
     font-size: 2.5rem;
+    font-family: "UniNeue-HeavyItalic"
   }
 `;
