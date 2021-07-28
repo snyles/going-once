@@ -4,6 +4,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const ItemFilterDiv = styled.div`
   margin: 2rem auto;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
   /* &>* { border: solid 1px red } */
   h2 {
     margin: 2rem 0 0.5rem 0;
@@ -27,9 +29,9 @@ const ItemFilterDiv = styled.div`
     cursor: pointer;
   }
   .selectAllNone {
-    cursor: pointer;
     margin-bottom: 0.5rem;
     span {
+      cursor: pointer;
       margin-right: 1rem;
       background: #ccc;
       padding: 0.5rem;
