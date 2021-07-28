@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import ItemCategoryFilter from "../components/ItemCategoryFilter";
 import ItemFeed from "../components/ItemFeed";
 import Page from "../components/Page";
 import { UserContext } from "../lib/UserContext";
@@ -6,6 +7,7 @@ import * as itemService from "../services/itemService"
 
 export default function Favorites () {
   const [favorites, setFavorites] = useState([]);
+  const [filtered, setFiltered] = useState([])
   const user = useContext(UserContext)
 
   useEffect(() => {
@@ -19,7 +21,8 @@ export default function Favorites () {
   return (
     <Page>
       <h1>My Favorites</h1>
-      <ItemFeed items={favorites} />
+      <ItemCategoryFilter items={favorites} setFiltered={setFiltered} />
+      <ItemFeed items={filtered} />
     </Page>
   )
 }

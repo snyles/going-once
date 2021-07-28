@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import ItemCategoryFilter from "../components/ItemCategoryFilter";
 import ItemFeed from "../components/ItemFeed";
 import Map from "../components/Map";
 import Page from "../components/Page";
@@ -7,6 +8,7 @@ import * as itemService from "../services/itemService"
 
 export default function ItemsPage () {
   const [items, setItems] = useState([]);
+  const [filtered, setFiltered] = useState([])
   const locData = useContext(LocationContext);
 
   useEffect( () => {
@@ -21,8 +23,9 @@ export default function ItemsPage () {
 
   return (
     <Page>
-      <Map items={items} />
-      <ItemFeed items={items} />
+      <Map items={filtered} />
+      <ItemCategoryFilter items={items} setFiltered={setFiltered} />
+      <ItemFeed items={filtered} setFiltered={setFiltered} />
     </Page>
   )
 }

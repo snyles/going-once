@@ -20,6 +20,7 @@ const SplashDiv = styled.div`
 
 const TitleStyle = styled.h1`
   font-size: 8rem;
+  font-family: "UniNeue-HeavyItalic";
   margin: 4rem 0 3rem 0;
   color: #fefefe;
   text-shadow: #000 2px 2px 5px;

@@ -4,10 +4,10 @@ import styled from "styled-components"
 const ItemFeedStyle = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
   max-width: 768px;
-  margin: 3rem auto 0 auto;
+  margin: 1rem auto 0 auto;
 `;
 
 export default function ItemFeed({items}) {

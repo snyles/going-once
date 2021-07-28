@@ -1,4 +1,16 @@
 const mongoose = require('mongoose');
+
+const commentSchema = new mongoose.Schema({
+  content: {type: String},
+  commentPostersName: {type: String},
+  postedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
+}, {
+  timestamps: true
+})
 const itemSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -17,7 +29,8 @@ const itemSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  favoritedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  favoritedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  comments: [commentSchema]
 }, {
   timestamps: true
 });

@@ -14,6 +14,7 @@ router.get("/favorite/:id", checkAuth, itemCtrl.getFavorites)
 router.post("/", checkAuth, itemCtrl.postItem)
 router.put("/favorite/:id", checkAuth, itemCtrl.addOrRemoveFavorite)
 router.delete('/:id', checkAuth, itemCtrl.deleteItem)
+router.post("/:id", checkAuth, itemCtrl.postComment)
 
 function checkAuth(req, res, next) {
   if (req.user) return next();
