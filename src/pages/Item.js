@@ -136,7 +136,10 @@ export default function ItemPage() {
               }
             </ButtonDiv>
             <CommentMap comments={itemData?.comments}/>
-            <CommentForm postComment={postComment} />
+            {user ? 
+              <CommentForm postComment={postComment}/> 
+              : 
+              <p>You must be logged in to comment</p>}
         </ColOne>
         <ColTwo>
           {itemData?.lat && itemData?.lng && 

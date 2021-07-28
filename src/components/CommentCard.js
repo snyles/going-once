@@ -10,6 +10,7 @@ const CommentCardStyle = styled.div`
     border-radius: 10px;
     background-color:#E0E4E7;
     padding: 1rem;
+    padding-left: 1.5rem;
     margin-bottom: 0.5rem;
   }
 `;
