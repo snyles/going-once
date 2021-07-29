@@ -7,7 +7,7 @@ import Footer from './Footer';
 const PageStyles = styled.main`
   margin: 0rem auto 2rem auto;
   width: 80%;
-  max-width: 1000px;
+  max-width: var(--maxWidth);
   flex: 1;
 
   @media (max-width: 992px) {

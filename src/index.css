@@ -59,6 +59,10 @@ button, input, select, option {
 
 }
 
+h1 { 
+  max-width: var(--maxWidth);
+  margin: 0 auto 2rem auto;
+}
 select {
   background: #fefefe;
   border: solid 1px #ccc;
