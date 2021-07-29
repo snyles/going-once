@@ -62,7 +62,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
     <>
       <h1 id='signupTitle'>Create your account</h1>
       <div className='imgs'>
-        <img src={googleLogo} className='googleSignin' alt="Login with Google" onClick={() => setIsOpen(true)} />
+        <img src={googleLogo} className='googleSignin' alt="Sign Up with Google" onClick={() => setIsOpen(true)} />
         <img src={facebookLogo} className='facebookSignin' alt="Login with Facebook" />
         <img src={twitterLogo} className='twitterSignin' alt="Login with Twitter" />
       </div>

@@ -10,7 +10,7 @@ import googleLogo from '../../assets/logos/googleLogo.png'
 import facebookLogo from '../../assets/logos/facebookLogo.png'
 import twitterLogo from '../../assets/logos/twitterLogo.png'
 
-// import SigninGoogle from '../../components/SignIn-Google'
+import OpenGoogleSI from '../../components/SigninAPI/Google/OpenSigninGoogle'
 
 import "./Login.css"
 
@@ -23,6 +23,7 @@ export default function LoginPage({handleSignupOrLogin}) {
   });
   const {email, pw} = inputs;
   const [message, setMessage] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
 
   const history = useHistory();
   
@@ -47,7 +48,7 @@ export default function LoginPage({handleSignupOrLogin}) {
     <Page>
       <h1 id='loginTitle'>Welcome Back!<br></br>Log In</h1>
       <div className='imgs'>
-        <img src={googleLogo} className='googleSignin' alt="Login with Google" />
+        <img src={googleLogo} className='googleSignin' alt="Login with Google" onClick={() => setIsOpen(true)} />
         <img src={facebookLogo} className='facebookSignin' alt="Login with Facebook"  />
         <img src={twitterLogo} className='twitterSignin' alt="Login with Twitter" />
       </div>
@@ -88,6 +89,7 @@ export default function LoginPage({handleSignupOrLogin}) {
         </fieldset>
       </form>
       <p id='noAccount'>Don't have an account? <Link to='/signup' id='signupLink'>Sign up!</Link></p>
+      <OpenGoogleSI isOpen={isOpen} setIsOpen={setIsOpen} />
     </Page>
   );
 }
