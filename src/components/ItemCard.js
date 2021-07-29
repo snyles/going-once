@@ -34,12 +34,12 @@ export default function ItemCard({item}) {
           title={title} 
         />
         <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">
+          <h3>
             {title}
-          </Typography>
-          <Typography variant="body" color="textSecondary" component="p">
+          </h3>
+          <p>
             {description}
-          </Typography>
+          </p>
           {/* <Typography variant="body2" color="textSecondary" component="p">
             {condition}
           </Typography> */}
