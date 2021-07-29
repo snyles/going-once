@@ -55,7 +55,7 @@ export default function ItemCategoryFilter ({items, setFiltered}) {
     const cats = [...new Set(items.map(item => item.category))]
     setCategories(cats)
     setSelected(cats)
-  },[items, setFiltered])
+  },[items])
 
   useEffect(() => {
     const filtered = items.filter(item => selected.includes(item.category))
@@ -84,17 +84,14 @@ export default function ItemCategoryFilter ({items, setFiltered}) {
           <span onClick={selectNone}>None</span>
         </div>
         <div className="categories">
-        { categories.length && categories.map((cat) => (
-          <>
-            <label htmlFor={`cat-${cat}`} key={`label-${cat}`}>{cat}
+        { categories.length && categories.map((cat,index) => (
+          <label htmlFor={`cat-${cat}`} key={index}>{cat}
             <Checkbox
               id={`cat-${cat}`} 
-              key={`check-${cat}`} 
               onClick={() => {toggleCategory(cat)}}
               checked={!!selected.includes(cat)}
             />
-            </label>
-          </>
+          </label>
         )) }
         </div>
       </ItemFilterDiv>
