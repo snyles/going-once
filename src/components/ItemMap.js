@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styled from "styled-components";
+import { MAP_ID } from "../data/MAP_ID";
 
 const MapDiv = styled.div`
   max-width: 500px;
@@ -20,8 +21,7 @@ export default function ItemMap({coords}) {
       clickableIcons: false,
       streetViewControl: false,
       mapTypeControl: false,
-      // disableDefaultUI: true,
-      // mapId: MAP_ID,
+      mapId: MAP_ID,
     });
     new window.google.maps.Marker({
       position: coords,

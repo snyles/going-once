@@ -14,7 +14,7 @@ const ItemFilterDiv = styled.div`
     display: flex;
     justify-content: flex-start;
     width: max-content;
-    max-width: 768px;
+    max-width: 900px;
     margin: 0 auto;
     overflow-x: scroll;
     @media (max-width: 768px) {
@@ -24,12 +24,14 @@ const ItemFilterDiv = styled.div`
   label {
     display: flex;
     margin: 0 1rem 0 0;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     font-size: 2rem;
     cursor: pointer;
+    white-space: nowrap;
   }
   .selectAllNone {
     margin-bottom: 0.5rem;
+    display: inline;
     span {
       cursor: pointer;
       margin-right: 1rem;
