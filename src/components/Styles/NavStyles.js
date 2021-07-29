@@ -6,6 +6,7 @@ export const NavStyles = styled.nav`
   justify-content: center;
   margin: 0 auto;
   width: 100%;
+  /* border-bottom: solid 1px var(--lightmint); */
   ul {
     display: flex;
     justify-content: center;
@@ -26,7 +27,7 @@ export const NavStyles = styled.nav`
     align-items: center;
   }
   li:hover{
-    background: #efefef;
+    background: var(--lightmint);
   }
   li:last-child {
     margin-left: auto;
@@ -36,6 +37,12 @@ export const NavStyles = styled.nav`
   }
   a {
     color: var(--black)
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  a.active {
+    border-bottom: solid 2px var(--mint)
   }
   .icon {
     font-size: 4rem;

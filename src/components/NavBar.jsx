@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { UserContext } from '../lib/UserContext';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
@@ -12,8 +12,8 @@ export default function NavBar ({ handleLogout }) {
     <NavStyles>
       <ul>
         <li className="logo">
-          <NavLink to="/">Going Once
-          </NavLink>
+          <Link to="/">Going Once
+          </Link>
         </li>
         <li>
           <NavLink to="/items">
@@ -35,7 +35,7 @@ export default function NavBar ({ handleLogout }) {
         </li>
 
       {user ?
-        <li><NavLink to="" onClick={handleLogout}>Log Out ({user.name})</NavLink></li>
+        <li><Link to="" onClick={handleLogout}>Log Out ({user.name})</Link></li>
       :
         <li className="login"><NavLink to="/login">Log In</NavLink></li>
       }

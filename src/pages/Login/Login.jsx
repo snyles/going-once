@@ -6,9 +6,9 @@ import useForm from "../../lib/useForm"
 import Page from "../../components/Page"
 import { Button } from "@material-ui/core"
 
-import googleLogo from '../../Logos/googleLogo.png'
-import facebookLogo from '../../Logos/facebookLogo.png'
-import twitterLogo from '../../Logos/twitterLogo.png'
+import googleLogo from '../../assets/logos/googleLogo.png'
+import facebookLogo from '../../assets/logos/facebookLogo.png'
+import twitterLogo from '../../assets/logos/twitterLogo.png'
 
 import "./Login.css"
 

@@ -20,7 +20,7 @@ export default function App () {
   const handleLogout = () => {
     authService.logout();
     setUser(null)
-    history.push("/post");
+    history.push("/items");
   }
 
   const handleSignupOrLogin = () => {
