@@ -9,7 +9,7 @@ import googleLogo from '../../assets/logos/googleLogo.png'
 import facebookLogo from '../../assets/logos/facebookLogo.png'
 import twitterLogo from '../../assets/logos/twitterLogo.png'
 
-import GoogleSI from '../SigninAPI/Google/SignIn-Google'
+import OpenGoogleSI from '../SigninAPI/Google/OpenSigninGoogle'
 
 import './SignupForm.css'
 
@@ -23,7 +23,8 @@ export default function SignupForm( {handleSignupOrLogin} ) {
   const { name, email, password, passwordConf } = inputs;
 
   const [message, setMessage] = useState('')
-  const [googleSI, setGoogleSI] = useState()
+  // const [googleSI, setGoogleSI] = useState()
+  const [isOpen, setIsOpen] = useState(false)
   const history = useHistory();
 
   const isFormInvalid = () => {
@@ -47,22 +48,21 @@ export default function SignupForm( {handleSignupOrLogin} ) {
     return () => document.body.classList.remove("gradientBg")
   }, [])
 
-  const showGoogleSignIn = (isOpen, setIsOpen) => {
-    return (
-      // <div>
-      //   {googleSI && <GoogleSI />}
-      //   setGoogleSI(true)
-      // </div>
-      <div></div>
-    )
-  }
+  // const showGoogleSignIn = (isOpen, setIsOpen) => {
+  //   return (
+  //     // <div>
+  //     //   {googleSI && <GoogleSI />}
+  //     //   setGoogleSI(true)
+  //     // </div>
+  //     <div></div>
+  //   )
+  // }
 
   return (
     <>
       <h1 id='signupTitle'>Create your account</h1>
       <div className='imgs'>
-        {googleSI && <GoogleSI />}
-        <img src={googleLogo} className='googleSignin' alt="Login with Google" onClick={() => setGoogleSI(true)} />
+        <img src={googleLogo} className='googleSignin' alt="Login with Google" onClick={() => setIsOpen(true)} />
         <img src={facebookLogo} className='facebookSignin' alt="Login with Facebook" />
         <img src={twitterLogo} className='twitterSignin' alt="Login with Twitter" />
       </div>
@@ -133,6 +133,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
         </fieldset>
       </form>
       <p id='yesAccount'>Already have an account? <Link to='/login' id='loginLink'>Log in!</Link></p>
+      <OpenGoogleSI isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
-  );
+  )
 }

@@ -13,6 +13,8 @@ import NavBar from "../../components/NavBar"
 import Favorites from "../Favorites"
 import ItemPage from "../Item"
 
+// import GoogleSI from '../../components/SigninAPI/Google/SignIn-Google'
+
 export default function App () {
   const [user, setUser] = useState(authService.getUser())
   const history = useHistory();
@@ -90,6 +92,12 @@ export default function App () {
               <SplashPage />
             )}
           />
+          {/* <Route
+            exact path="/googleSI"
+            render={() => (
+              <GoogleSI />
+            )}
+          /> */}
         </Switch>
       </LocationContext.Provider>
       </UserContext.Provider>
