@@ -63,3 +63,10 @@ You will need the following environmental variables to run locally
 ```DATABASE_URL```  A MongoDB connection string, such as [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
 ```SECRET``` Any random string, used for Json Web Token encryption
+
+# Next Steps / Icebox Features
+
+* Mobile App version
+* Item Search
+* Alerts / Notifactions for nearby items
+* Profile / My Items page
