@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styled from 'styled-components'
+import { MAP_ID } from "../data/MAP_ID";
 
 const PickerMap = styled.div`
   min-width: 200px;
@@ -20,8 +21,7 @@ export default function LocationPicker({startingCoords, setFinalCoords}) {
         clickableIcons: false,
         streetViewControl: false,
         mapTypeControl: false,
-        // disableDefaultUI: true,
-        // mapId: MAP_ID,
+        mapId: MAP_ID,
       }
     );
     const marker = new window.google.maps.Marker({
