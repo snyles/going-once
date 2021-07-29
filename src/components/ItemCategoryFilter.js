@@ -3,18 +3,19 @@ import styled from "styled-components";
 import Checkbox from '@material-ui/core/Checkbox';
 
 const ItemFilterDiv = styled.div`
-  margin: 2rem auto;
+  margin: 0 auto 2rem auto;
   /* border-top: solid 1px #ccc; */
   border-bottom: solid 1px #ccc;
+  max-width: var(--maxWidth);
   /* &>* { border: solid 1px red } */
   h2 {
-    margin: 2rem 0;
+    margin: 0rem 0 2rem 0;
   }
   &>div.categories {
     display: flex;
     justify-content: flex-start;
     width: max-content;
-    max-width: 900px;
+    max-width: var(--maxWidth);
     margin: 0 auto;
     overflow-x: scroll;
     @media (max-width: 768px) {
