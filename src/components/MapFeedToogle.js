@@ -43,7 +43,7 @@ export default function MapFeedToogle({display, setDisplay}) {
         onClick={() => setDisplay('feed')}
         className={display === 'feed' ? 'active' : undefined} 
       >
-        Feed
+        List
       </span>
     </ToggleDiv>
   )

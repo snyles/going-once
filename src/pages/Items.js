@@ -25,15 +25,14 @@ export default function ItemsPage () {
 
   const displaySwitch = () => {
     return display === 'feed' ? 
-      <ItemFeed items={items} /> :
-      <Map items={items} />
+      <ItemFeed items={filtered} setFiltered={setFiltered} />:
+      <Map items={filtered} />    
   }
 
   return (
     <Page>
-      <Map items={filtered} />
+      <h1 className="bottomBorder">Items in {locData?.location?.name}</h1>
       <ItemCategoryFilter items={items} setFiltered={setFiltered} />
-      <ItemFeed items={filtered} setFiltered={setFiltered} />
       <MapFeedToogle display={display} setDisplay={setDisplay} />
       {displaySwitch()}
       {/* <Map items={items} />

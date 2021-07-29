@@ -70,7 +70,7 @@ export default function Post() {
 
   return (
     <Page>
-      <h1>Post a New Item in {locData.location.name}</h1>
+      <h1 className="bottomBorder">Post a New Item in {locData.location.name}</h1>
       <TwoCols>
         <ColOne>
           <PostForm 
