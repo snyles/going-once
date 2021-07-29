@@ -88,7 +88,7 @@ export default function ItemPage() {
         </Link>
       </PageNav>
       {error && <p>{error}</p>}
-      {itemData?.title && <h1>{itemData.title}</h1>}
+      {itemData?.title && <h1 className="bottomBorder">{itemData.title}</h1>}
       {itemData?.picture && 
         <ImgDiv>
           <img src={itemData.picture} alt={itemData.title} />

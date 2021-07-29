@@ -5,7 +5,7 @@ import { LocationContext } from "../lib/LocationContext";
 import Footer from './Footer';
 
 const PageStyles = styled.main`
-  margin: 2rem auto;
+  margin: 0rem auto 2rem auto;
   width: 80%;
   max-width: 1000px;
   flex: 1;

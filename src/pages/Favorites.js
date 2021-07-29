@@ -20,7 +20,7 @@ export default function Favorites () {
 
   return (
     <Page>
-      <h1>My Favorites</h1>
+      <h1 className="bottomBorder">My Favorites</h1>
       <ItemCategoryFilter items={favorites} setFiltered={setFiltered} />
       <ItemFeed items={filtered} />
     </Page>

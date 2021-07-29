@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 export default function ItemCard({item}) {
   const history = useHistory()
   const classes = useStyles();
-  const { title, picture } = item
+  const { title, description, picture } = item
 
   return (
     <Card className={classes.root}>
@@ -37,9 +37,9 @@ export default function ItemCard({item}) {
           <Typography gutterBottom variant="h4" component="h2">
             {title}
           </Typography>
-          {/* <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body" color="textSecondary" component="p">
             {description}
-          </Typography> */}
+          </Typography>
           {/* <Typography variant="body2" color="textSecondary" component="p">
             {condition}
           </Typography> */}
