@@ -69,15 +69,17 @@ export default function Map({items = []}) {
         lat: item.lat,
         lng: item.lng,
       }
-      let url = item?.picture.split('/')
-      url.splice(url.length-3,0,'w_150,h_150,c_fit')
-      url = url.join('/')
+      let infoContent = `
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>`
+      if(item.picture) {
+        let url = item?.picture?.split('/')
+        url.splice(url.length-3,0,'w_150,h_150,c_fit')
+        url = url.join('/')
+        infoContent += `<img src=${url} alt=${item.title} />`
+      }
       const info = new window.google.maps.InfoWindow({
-        content: `
-          <h3>${item.title}</h3>
-          <p>${item.description}</p>
-          <img src=${url} alt=${item.title} />
-        `,
+        content: infoContent
       })
       const gMarker = new window.google.maps.Marker({
         position: pos,

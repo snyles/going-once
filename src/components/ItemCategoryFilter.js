@@ -89,7 +89,7 @@ export default function ItemCategoryFilter ({items, setFiltered}) {
             <label htmlFor={`cat-${cat}`} key={`label-${cat}`}>{cat}
             <Checkbox
               id={`cat-${cat}`} 
-              key={cat} 
+              key={`check-${cat}`} 
               onClick={() => {toggleCategory(cat)}}
               checked={!!selected.includes(cat)}
             />
