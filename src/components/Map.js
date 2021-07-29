@@ -111,7 +111,7 @@ export default function Map({items = []}) {
       googleMarkers.push(gMarker)
     }
     setMarkers(googleMarkers)
-  },[items, map, history, markers])
+  },[items, map, history])
 
   return (
     <MapDiv id="map">Loading...</MapDiv>
