@@ -71,7 +71,7 @@ export default function PostForm
             <option value="Decor">Decor</option>
             <option value="Appliances">Appliances</option>
             <option value="Clothes">Clothes</option>
-            <option value="Personal Care">Personal Care</option>
+            <option value="Personal">Personal Care</option>
             <option value="Food">Food</option>
             <option value="Other">Other / Miscellaneous</option>
           </select>

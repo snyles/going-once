@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import styles from "./Login.module.css"
 import authService from '../../services/authService'
@@ -6,9 +6,9 @@ import useForm from "../../lib/useForm"
 import Page from "../../components/Page"
 import { Button } from "@material-ui/core"
 
-import googleLogo from '../../Logos/googleLogo.png'
-import facebookLogo from '../../Logos/facebookLogo.png'
-import twitterLogo from '../../Logos/twitterLogo.png'
+import googleLogo from '../../assets/logos/googleLogo.png'
+import facebookLogo from '../../assets/logos/facebookLogo.png'
+import twitterLogo from '../../assets/logos/twitterLogo.png'
 
 import "./Login.css"
 
@@ -33,6 +33,11 @@ export default function LoginPage({handleSignupOrLogin}) {
       setMessage(err.message)
     }
   };
+
+  useEffect(() => {
+    document.body.classList.add("gradientBg")
+    return () => document.body.classList.remove("gradientBg")
+  }, [])
 
   return (
     <Page>

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import authService from "../../services/authService";
 import useForm from "../../lib/useForm";
 import styles from './SignupForm.module.css'
 import { Button } from "@material-ui/core";
 
-import googleLogo from '../../Logos/googleLogo.png'
-import facebookLogo from '../../Logos/facebookLogo.png'
-import twitterLogo from '../../Logos/twitterLogo.png'
+import googleLogo from '../../assets/logos/googleLogo.png'
+import facebookLogo from '../../assets/logos/facebookLogo.png'
+import twitterLogo from '../../assets/logos/twitterLogo.png'
 
 import './SignupForm.css'
 
@@ -38,6 +38,11 @@ export default function SignupForm( {handleSignupOrLogin} ) {
       setMessage(err.message);
     }
   };
+
+  useEffect(() => {
+    document.body.classList.add("gradientBg")
+    return () => document.body.classList.remove("gradientBg")
+  }, [])
 
   return (
     <>

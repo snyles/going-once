@@ -3,18 +3,19 @@ import styled from "styled-components";
 import Checkbox from '@material-ui/core/Checkbox';
 
 const ItemFilterDiv = styled.div`
-  margin: 2rem auto;
-  border-top: solid 1px #ccc;
+  margin: 0 auto 2rem auto;
+  /* border-top: solid 1px #ccc; */
   border-bottom: solid 1px #ccc;
+  max-width: var(--maxWidth);
   /* &>* { border: solid 1px red } */
   h2 {
-    margin: 2rem 0 0.5rem 0;
+    margin: 0rem 0 2rem 0;
   }
   &>div.categories {
     display: flex;
     justify-content: flex-start;
     width: max-content;
-    max-width: 768px;
+    max-width: var(--maxWidth);
     margin: 0 auto;
     overflow-x: scroll;
     @media (max-width: 768px) {
@@ -24,18 +25,23 @@ const ItemFilterDiv = styled.div`
   label {
     display: flex;
     margin: 0 1rem 0 0;
-    padding: 0.5rem;
+    padding: 2rem 0 1rem 0;
     font-size: 2rem;
     cursor: pointer;
+    white-space: nowrap;
   }
   .selectAllNone {
-    margin-bottom: 0.5rem;
+    padding: 2rem 0;
+    display: inline;
     span {
       cursor: pointer;
       margin-right: 1rem;
       background: #ccc;
-      padding: 0.5rem;
+      padding: 1rem;
       border-radius: 0.5rem;
+    }
+    span:hover {
+      background: #ddd;
     }
   }
   

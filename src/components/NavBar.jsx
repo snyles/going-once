@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { UserContext } from '../lib/UserContext';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
@@ -10,36 +10,36 @@ export default function NavBar ({ handleLogout }) {
   const user = useContext(UserContext)
   return (
     <NavStyles>
-      <ul>
-        <li className="logo">
-          <NavLink to="/">Going Once
-          </NavLink>
-        </li>
-        <li>
+      <div className="container">
+        <div className="logo">
+          <Link to="/">Going Once</Link>
+        </div>
+        <div className="links">
           <NavLink to="/items">
-          <span className="icon"><HomeOutlinedIcon fontSize="inherit" /></span>
-          Home
+            <span className="icon"><HomeOutlinedIcon fontSize="inherit" /></span>
+            Home
           </NavLink>
-        </li>
-        <li>
           <NavLink to="/post">
-          <span className="icon"><AddCircleOutlineIcon fontSize="inherit" /></span>
-          Post
+            <span className="icon"><AddCircleOutlineIcon fontSize="inherit" /></span>
+            Post
           </NavLink>
-        </li>
-        <li>
           <NavLink to="/favorites">
-          <span className="icon"><FavoriteBorderOutlinedIcon fontSize="inherit"/></span>
-          Favorites
+            <span className="icon"><FavoriteBorderOutlinedIcon fontSize="inherit"/></span>
+            Favorites
           </NavLink>
-        </li>
-
-      {user ?
-        <li><NavLink to="" onClick={handleLogout}>Log Out ({user.name})</NavLink></li>
-      :
-        <li className="login"><NavLink to="/login">Log In</NavLink></li>
-      }
-      </ul>
+        </div>
+        <div className="auth">
+        {user ?
+          <Link to="" onClick={handleLogout}>
+            Log Out ({user.name})
+          </Link>
+        :
+          <NavLink to="/login">
+            Log In
+          </NavLink>
+        }
+        </div>
+      </div>
     </NavStyles>
   )
 }

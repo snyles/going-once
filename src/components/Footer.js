@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const FooterStyles = styled.footer`
   display: flex;
@@ -13,7 +14,7 @@ export default function Footer () {
     <FooterStyles>
        Copyright&copy; 2021&nbsp;
        <a href="https://github.com/SummerSquads-blue/going-once" target="_blank" rel="noreferrer" >
-         SummerSquads Blue Team
+       <GitHubIcon /> SummerSquads Blue Team 
         </a>
     </FooterStyles>
   )
