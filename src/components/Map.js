@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { LocationContext } from "../lib/LocationContext";
-import { MAP_ID } from "../data/MAP_ID";
-// import MarkerClusterer from '@googlemaps/markerclustererplus';
+import { MAP_ID } from "../assets/data/MAP_ID";
+import { useHistory } from "react-router-dom";
 
 // map category icons
 import appliances from "../assets/icons/appliances.png"
@@ -13,7 +13,6 @@ import painting from "../assets/icons/painting.png"
 import fashion from "../assets/icons/fashion.png"
 import toiletries from "../assets/icons/toiletries.png"
 import questionmark from "../assets/icons/question-mark.png"
-import { useHistory } from "react-router-dom";
 
 
 const MapDiv = styled.div`
@@ -62,13 +61,21 @@ export default function Map({items = []}) {
   },[locData])
 
   useEffect(() => {
-    resetMarkers()
+    // reset markers
+    for (const mark of markers) {
+      mark.setMap(null)
+    }
     const googleMarkers = []
+
+    // loop through items
     for (const item of items) {
+      // get item position
       const pos = {
         lat: item.lat,
         lng: item.lng,
       }
+
+      // set info popup content
       let infoContent = `
         <h3>${item.title}</h3>
         <p>${item.description}</p>`
@@ -78,15 +85,20 @@ export default function Map({items = []}) {
         url = url.join('/')
         infoContent += `<img src=${url} alt=${item.title} />`
       }
+
+      // create info window
       const info = new window.google.maps.InfoWindow({
         content: infoContent
       })
+
+      // create marker
       const gMarker = new window.google.maps.Marker({
         position: pos,
         map,
         icon: iconTypes[item.category]
       })
 
+      // add event listeners
       gMarker.addListener('mouseover', () => info.open({
         anchor: gMarker,
         map,
@@ -99,16 +111,7 @@ export default function Map({items = []}) {
       googleMarkers.push(gMarker)
     }
     setMarkers(googleMarkers)
-    // const markerCluster = new MarkerClusterer(map, googleMarkers, {
-    //   imagePath: "https://unpkg.com/@googlemaps/markerclustererplus@1.0.3/images/m",
-    // });
-  },[items, map])
-
-  const resetMarkers = () => {
-    for (const mark of markers) {
-      mark.setMap(null)
-    }
-  }
+  },[items, map, history, markers])
 
   return (
     <MapDiv id="map">Loading...</MapDiv>

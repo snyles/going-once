@@ -48,9 +48,9 @@ export default function SignupForm( {handleSignupOrLogin} ) {
     <>
       <h1 id='signupTitle'>Create your account</h1>
       <div className='imgs'>
-        <img src={googleLogo} id='googleSignin' />
-        <img src={facebookLogo} id='facebookSignin' />
-        <img src={twitterLogo} id='twitterSignin' />
+        <img src={googleLogo} id='googleSignin' alt="Sign in with Google" />
+        <img src={facebookLogo} id='facebookSignin' alt="Sign in with Facebook" />
+        <img src={twitterLogo} id='twitterSignin' alt="Sign in with Twitter" />
       </div>
       <form autoComplete="off" onSubmit={(e)=>e.preventDefault()} className={styles.signupForm}>
         <fieldset>

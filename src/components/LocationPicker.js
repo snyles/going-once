@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styled from 'styled-components'
-import { MAP_ID } from "../data/MAP_ID";
+import { MAP_ID } from "../assets/data/MAP_ID";
 
 const PickerMap = styled.div`
   min-width: 200px;

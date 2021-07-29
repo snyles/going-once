@@ -30,7 +30,7 @@ export default function SplashLocation({location}) {
 
   return (
     <LocationBox>
-      <h1>What's the closest major City?</h1>
+      <h1>What's the closest City?</h1>
       <div>
         <AutoCompleteInput
           location={location}
