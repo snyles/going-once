@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import styles from "./Login.module.css"
 import authService from '../../services/authService'
@@ -33,6 +33,11 @@ export default function LoginPage({handleSignupOrLogin}) {
       setMessage(err.message)
     }
   };
+
+  useEffect(() => {
+    document.body.classList.add("gradientBg")
+    return () => document.body.classList.remove("gradientBg")
+  }, [])
 
   return (
     <Page>

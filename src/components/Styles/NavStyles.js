@@ -6,6 +6,7 @@ export const NavStyles = styled.nav`
   justify-content: center;
   margin: 0 auto;
   width: 100%;
+  background: var(--offWhite);
   /* border-bottom: solid 1px var(--lightmint); */
   ul {
     display: flex;

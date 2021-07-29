@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import authService from "../../services/authService";
 import useForm from "../../lib/useForm";
@@ -38,6 +38,11 @@ export default function SignupForm( {handleSignupOrLogin} ) {
       setMessage(err.message);
     }
   };
+
+  useEffect(() => {
+    document.body.classList.add("gradientBg")
+    return () => document.body.classList.remove("gradientBg")
+  }, [])
 
   return (
     <>
