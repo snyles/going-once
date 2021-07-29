@@ -10,6 +10,8 @@ import googleLogo from '../../assets/logos/googleLogo.png'
 import facebookLogo from '../../assets/logos/facebookLogo.png'
 import twitterLogo from '../../assets/logos/twitterLogo.png'
 
+// import SigninGoogle from '../../components/SignIn-Google'
+
 import "./Login.css"
 
 // import './Login.css'
@@ -45,9 +47,9 @@ export default function LoginPage({handleSignupOrLogin}) {
     <Page>
       <h1 id='loginTitle'>Welcome Back!<br></br>Log In</h1>
       <div className='imgs'>
-        <img src={googleLogo} id='googleSignin' alt="Login with Google" />
-        <img src={facebookLogo} id='facebookSignin' alt="Login with Facebook"  />
-        <img src={twitterLogo} id='twitterSignin' alt="Login with Twitter" />
+        <img src={googleLogo} className='googleSignin' alt="Login with Google" />
+        <img src={facebookLogo} className='facebookSignin' alt="Login with Facebook"  />
+        <img src={twitterLogo} className='twitterSignin' alt="Login with Twitter" />
       </div>
       <form className={styles.loginForm} autoComplete="off" onSubmit={(e)=>e.preventDefault()}>
         <fieldset>

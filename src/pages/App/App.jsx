@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { Route, useHistory, Switch } from "react-router-dom";
-import Signup from "../Signup/Signup";
-import Login from "../Login/Login";
+import { useState } from "react"
+import { Route, useHistory, Switch } from "react-router-dom"
+import Signup from "../Signup/Signup"
+import Login from "../Login/Login"
 import authService from "../../services/authService"
 import { UserContext } from '../../lib/UserContext'
-import { LocationContext } from "../../lib/LocationContext";
-import ProtectedRoute from "../../components/ProtectedRoute";
-import SplashPage from "../SplashPage";
+import { LocationContext } from "../../lib/LocationContext"
+import ProtectedRoute from "../../components/ProtectedRoute"
+import SplashPage from "../SplashPage"
 import Post from "../Post"
-import ItemsPage from "../Items";
-import NavBar from "../../components/NavBar";
-import Favorites from "../Favorites";
-import ItemPage from "../Item";
+import ItemsPage from "../Items"
+import NavBar from "../../components/NavBar"
+import Favorites from "../Favorites"
+import ItemPage from "../Item"
 
 export default function App () {
   const [user, setUser] = useState(authService.getUser())
@@ -85,7 +85,7 @@ export default function App () {
             <Favorites />
           </ProtectedRoute>
           <Route
-            path="/"
+            exact path="/"
             render={() => (
               <SplashPage />
             )}

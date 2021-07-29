@@ -60,7 +60,7 @@ input {
           justify-content: center;
 }
 
-#googleSignin {
+.googleSignin {
   border: 3px solid black;
   border-radius: 50%;
   height: 55px;
@@ -68,7 +68,11 @@ input {
   margin: 2.5vh;
 }
 
-#facebookSignin {
+.googleSignin:hover {
+  cursor: pointer;
+}
+
+.facebookSignin {
   border: 3px solid black;
   border-radius: 50%;
   height: 55px;
@@ -76,12 +80,20 @@ input {
   margin: 2.5vh;
 }
 
-#twitterSignin {
+.facebookSignin:hover {
+  cursor: pointer;
+}
+
+.twitterSignin {
   border: 3px solid black;
   border-radius: 50%;
   height: 55px;
   width: 55px;
   margin: 2.5vh;
+}
+
+.twitterSignin:hover {
+  cursor: pointer;
 }
 
 #noAccount {

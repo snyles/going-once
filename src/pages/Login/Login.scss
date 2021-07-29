@@ -46,31 +46,40 @@ input {
   justify-content: center;
 }
 
-#googleSignin {
+.googleSignin {
   // flex: 1;
   border: 3px solid black;
   border-radius: 50%;
   height: 55px;
   width: 55px;
   margin: 2.5vh;
+    &:hover {
+      cursor: pointer;
+    }
 }
 
-#facebookSignin {
+.facebookSignin {
   // flex: 1;
   border: 3px solid black;
   border-radius: 50%;
   height: 55px;
   width: 55px;
   margin: 2.5vh;
+    &:hover {
+      cursor: pointer;
+    }
 }
 
-#twitterSignin {
+.twitterSignin {
   // flex: 1;
   border: 3px solid black;
   border-radius: 50%;
   height: 55px;
   width: 55px;
   margin: 2.5vh;
+    &:hover {
+      cursor: pointer;
+    }
 }
 
 #noAccount {

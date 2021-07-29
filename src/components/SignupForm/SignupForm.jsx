@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, Link } from "react-router-dom";
-import authService from "../../services/authService";
-import useForm from "../../lib/useForm";
+import React, { useEffect, useState } from "react"
+import { useHistory, Link } from "react-router-dom"
+import authService from "../../services/authService"
+import useForm from "../../lib/useForm"
 import styles from './SignupForm.module.css'
-import { Button } from "@material-ui/core";
+import { Button } from "@material-ui/core"
 
 import googleLogo from '../../assets/logos/googleLogo.png'
 import facebookLogo from '../../assets/logos/facebookLogo.png'
 import twitterLogo from '../../assets/logos/twitterLogo.png'
+
+import GoogleSI from '../SigninAPI/Google/SignIn-Google'
 
 import './SignupForm.css'
 
@@ -21,6 +23,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
   const { name, email, password, passwordConf } = inputs;
 
   const [message, setMessage] = useState('')
+  const [googleSI, setGoogleSI] = useState()
   const history = useHistory();
 
   const isFormInvalid = () => {
@@ -44,13 +47,24 @@ export default function SignupForm( {handleSignupOrLogin} ) {
     return () => document.body.classList.remove("gradientBg")
   }, [])
 
+  const showGoogleSignIn = (isOpen, setIsOpen) => {
+    return (
+      // <div>
+      //   {googleSI && <GoogleSI />}
+      //   setGoogleSI(true)
+      // </div>
+      <div></div>
+    )
+  }
+
   return (
     <>
       <h1 id='signupTitle'>Create your account</h1>
       <div className='imgs'>
-        <img src={googleLogo} id='googleSignin' />
-        <img src={facebookLogo} id='facebookSignin' />
-        <img src={twitterLogo} id='twitterSignin' />
+        {googleSI && <GoogleSI />}
+        <img src={googleLogo} className='googleSignin' alt="Login with Google" onClick={() => setGoogleSI(true)} />
+        <img src={facebookLogo} className='facebookSignin' alt="Login with Facebook" />
+        <img src={twitterLogo} className='twitterSignin' alt="Login with Twitter" />
       </div>
       <form autoComplete="off" onSubmit={(e)=>e.preventDefault()} className={styles.signupForm}>
         <fieldset>
