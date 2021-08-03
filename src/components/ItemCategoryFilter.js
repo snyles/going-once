@@ -44,7 +44,6 @@ const ItemFilterDiv = styled.div`
       background: #ddd;
     }
   }
-  
 `;
 
 export default function ItemCategoryFilter ({items, setFiltered}) {
@@ -75,6 +74,7 @@ export default function ItemCategoryFilter ({items, setFiltered}) {
     setSelected([])
   }
 
+  if (!items.length) return (<></>)
   return (
     <>
       <ItemFilterDiv>
