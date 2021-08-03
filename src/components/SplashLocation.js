@@ -23,6 +23,11 @@ const LocationBox= styled.div`
       font-size: 2rem;
     }
   }
+  p {
+    margin: 1rem auto;
+    color: red;
+    font-size: 2rem;
+  }
 `;
 
 export default function SplashLocation({location}) {
@@ -31,6 +36,7 @@ export default function SplashLocation({location}) {
   return (
     <LocationBox>
       <h1>What's the closest City?</h1>
+      <p>*For demo purposes please enter Rochester, NY</p>
       <div>
         <AutoCompleteInput
           location={location}

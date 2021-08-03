@@ -6,7 +6,7 @@ const ItemFeedStyle = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  max-width: 768px;
+  max-width: var(--maxWidth);
   margin: 1rem auto 0 auto;
 `;
 

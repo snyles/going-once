@@ -75,6 +75,7 @@ export default function ItemCategoryFilter ({items, setFiltered}) {
     setSelected([])
   }
 
+  if (!items.length) return (<></>)
   return (
     <>
       <ItemFilterDiv>
